@@ -12,17 +12,15 @@ import java.util.ArrayList;
  * @author Grzechu
  */
 public class Bohaterowie {
-    
-    private ArrayList<Postac> tablica;
-    
-public Bohaterowie ()
-{
-    tablica = new ArrayList<>();
-}
 
-public void dodajBohatera (String dane)
-{
-    Postac p = new Postac(dane);
+    public ArrayList<Postac> tablica;
 
-}
+    public Bohaterowie() {
+        tablica = new ArrayList<>();
+    }
+
+    public void dodajBohatera(String dane) {
+        Postac p = new Postac(dane);
+        tablica.add(p);
+    }
 }

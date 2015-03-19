@@ -10,23 +10,20 @@ package dandd.gra;
  * @author Grzechu
  */
 public class Gra {
-    
 
-    public static void gra () {
-        
+    public static void gra(String mapa, String pionki) {
+
         Bohaterowie postaci = new Bohaterowie();
+        //Wczytaj bohaterów z pionków
+        postaci.dodajBohatera(pionki);
+        Mapa siatka = new Mapa();
+        siatka.MapaWczytaj(mapa);
         
-        //inicjujMape
-        
-        
-       // while (warunkiKonca(Postaci) == 0)
+        // while (warunkiKonca(postaci) == 0)
         {
-            
-            
-            
+
         }
-        
+
     }
-    
-    
+
 }
