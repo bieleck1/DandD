@@ -49,6 +49,20 @@ public class Mapa {
 
         }
     }
+    
+    public void RozmiescBohaterow (Bohaterowie b)
+    {
+        int liczbaRozmieszczonych = 0;
+        
+        while (liczbaRozmieszczonych != b.iloscPostaci)
+        {
+            
+            liczbaRozmieszczonych++;
+        }
+        return;
+    }
+
+
 }
 
 /*-----------------------------------------------------------
@@ -59,8 +73,8 @@ public class Mapa {
  |0 to zwykłe pole, 1 to ściana/obiekt nie do przejścia,      |
  |2 to trudny teren, 3 to pułapka itp itd                     |
  |Czyli interpretujemy to jako pole:                          |
- |0123    /*\     01                                          |
- |0123     | Y    23                                          |
+ |0123    /*\                                                 |
+ |0123     | Y                                                |
  |0123    \./                                                 |
  |<-->                                                        |
  |  X                                                         |

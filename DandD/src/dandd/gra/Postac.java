@@ -21,7 +21,9 @@ public class Postac {
     private int kObrazen;       //Kość obrażeń
     private int premiaObrazen;  //Premia do obrażeń
     private int ruch;           //Punkty ruchu
-
+    private int gracz;          //Kto steruje postacią
+    
+    
     public Postac(String dane) {
         int dlugosc = dane.length();
         int i = 0;
@@ -32,6 +34,8 @@ public class Postac {
             switch (i) {
                 case 0:
                     this.nazwa = wyraz;
+                    if (this.nazwa.substring(0, 2) == "[K]")
+                        this.gracz = 0;
                     break;
 
                 case 1:
@@ -65,7 +69,7 @@ public class Postac {
             dane = pom;
 
             dlugosc = dane.length();
-        }
+            }
     }
 
     public int losujObrazenia() {
@@ -79,5 +83,9 @@ public class Postac {
     public void odejmijPW(int ilosc) {
         this.PW -= ilosc;
     }
-
+   
+    public int podajGracza ()
+    {
+        return this.gracz;
+    }
 }

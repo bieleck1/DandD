@@ -19,6 +19,9 @@ public class Gra {
         Mapa siatka = new Mapa();
         siatka.MapaWczytaj(mapa);
         
+        siatka.RozmiescBohaterow(postaci);
+        
+        
         // while (warunkiKonca(postaci) == 0)
         {
 

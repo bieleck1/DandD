@@ -14,7 +14,7 @@ public class Pole {
     private int rzad;
     private int kolumna;
     private int typTerenu;
-    private int czy_zajete;
+    public int czy_zajete;
 
     public Pole(int rzad, int kolumna, int typTerenu) {
         this.rzad = rzad;

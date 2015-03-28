@@ -14,13 +14,16 @@ import java.util.ArrayList;
 public class Bohaterowie {
 
     public ArrayList<Postac> tablica;
-
+    public int iloscPostaci;
+    
     public Bohaterowie() {
-        tablica = new ArrayList<>();
+        this.tablica = new ArrayList<>();
+        this.iloscPostaci = 0;
     }
 
     public void dodajBohatera(String dane) {
         Postac p = new Postac(dane);
         tablica.add(p);
+        this.iloscPostaci++;
     }
 }
