@@ -22,7 +22,7 @@ public class Postac {
     private int premiaObrazen;  //Premia do obrażeń
     private int ruch;           //Punkty ruchu
     private int gracz;          //Kto steruje postacią
-    
+    private int numer;          //Numeracja postaci
     
     public Postac(String dane) {
         int dlugosc = dane.length();
@@ -87,5 +87,15 @@ public class Postac {
     public int podajGracza ()
     {
         return this.gracz;
+    }
+
+    public void okreslNumer (int n)
+    {
+        this.numer = n;
+    }
+    
+    public int jakiNumer ()
+    {
+        return this.numer;
     }
 }

@@ -14,12 +14,17 @@ public class Pole {
     private int rzad;
     private int kolumna;
     private int typTerenu;
-    public int czy_zajete;
+    public int ktoZajmuje;
 
     public Pole(int rzad, int kolumna, int typTerenu) {
         this.rzad = rzad;
         this.kolumna = kolumna;
         this.typTerenu = typTerenu;
-        this.czy_zajete = 0;
+        this.ktoZajmuje = 0;
+    }
+
+    public boolean czyDostepne ()
+    {
+        return this.typTerenu != 1 && this.typTerenu != 3;
     }
 }

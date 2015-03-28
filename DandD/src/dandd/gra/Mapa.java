@@ -11,24 +11,30 @@ import java.util.ArrayList;
  *
  * @author Grzechu
  */
-public class Mapa {
+public class Mapa
+{
 
     public ArrayList<Pole> plansza;
+    private int wymiarX;
+    private int wymiarY;
 
-    public Mapa() {
+    public Mapa()
+    {
         plansza = new ArrayList<>();
+
     }
 
-    public void MapaWczytaj(String dane) {
+    public void MapaWczytaj(String dane)
+    {
 
         int dlugosc = dane.length();
         String wyraz = dane.substring(0, dane.indexOf(';'));
-        int wymiarX = Integer.parseInt(wyraz);
+        this.wymiarX = Integer.parseInt(wyraz);
         String pom;
         pom = dane.substring(dane.indexOf(';') + 1);
         dane = pom;
         wyraz = dane.substring(0, dane.indexOf(';'));
-        int wymiarY = Integer.parseInt(wyraz);
+        this.wymiarY = Integer.parseInt(wyraz);
         pom = dane.substring(dane.indexOf(';') + 1);
         dane = pom;
 
@@ -42,26 +48,45 @@ public class Mapa {
             plansza.add(p);
 
             i++;
-            if (i % wymiarX == 0) {
-                i -= wymiarX;
+            if (i % this.wymiarX == 0) {
+                i -= this.wymiarX;
                 j++;
             }
 
         }
     }
-    
-    public void RozmiescBohaterow (Bohaterowie b)
+
+    public void RozmiescBohaterow(Bohaterowie b)
     {
         int liczbaRozmieszczonych = 0;
-        
+
         while (liczbaRozmieszczonych != b.iloscPostaci)
         {
-            
+            if (b.tablica.get(liczbaRozmieszczonych).podajGracza() != 0)
+            {
+                for (int j=0; j < this.plansza.size(); j++)
+                {
+                    if (this.plansza.get(j).ktoZajmuje == 0 && this.plansza.get(j).czyDostepne() == true)
+                    {    
+                        this.plansza.get(j).ktoZajmuje = b.tablica.get(liczbaRozmieszczonych).jakiNumer();
+                        break;
+                    }
+                }    
+            }
+            else
+            {
+                for (int j = this.plansza.size(); j > 0; j--)
+                {
+                    if (this.plansza.get(j).ktoZajmuje == 0 && this.plansza.get(j).czyDostepne() == true)
+                    {    
+                        this.plansza.get(j).ktoZajmuje = b.tablica.get(liczbaRozmieszczonych).jakiNumer();
+                        break;
+                    }
+                }
+            }
             liczbaRozmieszczonych++;
         }
     }
-
-
 }
 
 /*-----------------------------------------------------------

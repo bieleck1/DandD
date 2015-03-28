@@ -21,14 +21,12 @@ public class Gra {
         
         siatka.RozmiescBohaterow(postaci);
         
-        //Nie chce mi sie
         
         
         // while (warunkiKonca(postaci) == 0)
         {
 
         }
-        //TO NIECH CI SIĘ ZACHCE!
     }
 
 }
