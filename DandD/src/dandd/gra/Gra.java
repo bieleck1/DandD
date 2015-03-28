@@ -28,7 +28,7 @@ public class Gra {
         {
 
         }
-
+        //TO NIECH CI SIĘ ZACHCE!
     }
 
 }
