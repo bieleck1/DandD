@@ -59,7 +59,6 @@ public class Mapa {
             
             liczbaRozmieszczonych++;
         }
-        return;
     }
 
 
