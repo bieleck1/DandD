@@ -30,12 +30,13 @@ public class Postac {
 
         while (0 < dlugosc) {
             String wyraz = dane.substring(0, dane.indexOf(';'));
-
             switch (i) {
                 case 0:
                     this.nazwa = wyraz;
-                    if (this.nazwa.substring(0, 2) == "[K]")
+                    if ("[K]".equals(this.nazwa.substring(0, 3)))
                         this.gracz = 0;
+                    else
+                        this.gracz = 1;
                     break;
 
                 case 1:
@@ -97,5 +98,10 @@ public class Postac {
     public int jakiNumer ()
     {
         return this.numer;
+    }
+    
+    public String nazwaPostaci ()
+    {
+        return this.nazwa;
     }
 }

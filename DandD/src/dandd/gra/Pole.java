@@ -25,6 +25,11 @@ public class Pole {
 
     public boolean czyDostepne ()
     {
-        return this.typTerenu != 1 && this.typTerenu != 3;
+        return this.typTerenu != 1 && this.typTerenu != 3 && this.ktoZajmuje == 0;
+    }
+    
+    public int typTerenu ()
+    {
+        return this.typTerenu;
     }
 }

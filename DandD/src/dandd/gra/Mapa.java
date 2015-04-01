@@ -26,7 +26,7 @@ public class Mapa
 
     public void MapaWczytaj(String dane)
     {
-
+        
         int dlugosc = dane.length();
         String wyraz = dane.substring(0, dane.indexOf(';'));
         this.wymiarX = Integer.parseInt(wyraz);
@@ -52,7 +52,12 @@ public class Mapa
                 i -= this.wymiarX;
                 j++;
             }
+            
+            String pom2;
+            pom2 = dane.substring(dane.indexOf(';') + 1);
+            dane = pom2;
 
+            dlugosc = dane.length();
         }
     }
 
@@ -75,7 +80,7 @@ public class Mapa
             }
             else
             {
-                for (int j = this.plansza.size(); j > 0; j--)
+                for (int j = this.plansza.size()-1; j >= 0; j--)
                 {
                     if (this.plansza.get(j).ktoZajmuje == 0 && this.plansza.get(j).czyDostepne() == true)
                     {    
@@ -86,6 +91,33 @@ public class Mapa
             }
             liczbaRozmieszczonych++;
         }
+    }
+    
+    @Override
+    public String toString ()
+    {
+        StringBuilder wydruk = new StringBuilder();
+        int i=0, j=0, pole=0;
+        while ( i < this.wymiarX )
+        {
+            while (j < this.wymiarY)
+            {
+                wydruk.append(this.plansza.get(pole).typTerenu());
+                j++;
+                pole++;
+            }
+            i++;
+            j=0;
+            wydruk.append("\n");
+        }
+        
+        for (i = 0; i < this.plansza.size(); i++)
+        {
+            if (this.plansza.get(i).ktoZajmuje != 0)
+                wydruk.append(this.plansza.get(i).ktoZajmuje).append(" na polu ").append(i).append("\n");
+        }
+        
+        return wydruk.toString();
     }
 }
 

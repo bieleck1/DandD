@@ -23,7 +23,8 @@ public class Bohaterowie {
 
     public void dodajBohatera(String dane) {
         Postac p = new Postac(dane);
-        p.okreslNumer(++iloscPostaci);
+        this.iloscPostaci++;
+        p.okreslNumer(this.iloscPostaci);
         tablica.add(p);
     }
 }
