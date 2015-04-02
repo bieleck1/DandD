@@ -27,14 +27,20 @@ public class Gra {
         Mapa siatka = new Mapa();
         siatka.MapaWczytaj(mapa);
         siatka.RozmiescBohaterow(postaci);
+                   
         
-        
+        //Sprawdzenie
         System.out.println(siatka);
-
+        System.out.println(postaci);
         
-        // while (warunkiKonca(postaci) == 0)
+        
+        //Inicjowanie gry
+        for (int i=0; i < postaci.iloscPostaci; i++)
+            postaci.tablica.get(i).losujInicjatywe();
+        
+        //while ( postaci.liczbaPostaciGraczy() != 0 )
         {
-
+            
         }
     }
 

@@ -5,7 +5,6 @@
  */
 package dandd.gra;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -23,6 +22,8 @@ public class Postac {
     private int ruch;           //Punkty ruchu
     private int gracz;          //Kto steruje postacią
     private int numer;          //Numeracja postaci
+    private int inicjatywa;     //Bonus inicjatywy; Inicjatywa
+    
     
     public Postac(String dane) {
         int dlugosc = dane.length();
@@ -62,6 +63,10 @@ public class Postac {
                 case 6:
                     this.ruch = Integer.parseInt(wyraz);
                     break;
+                    
+                case 7:
+                    this.inicjatywa = Integer.parseInt(wyraz);
+                    break;
             }
             i++;
 
@@ -74,10 +79,9 @@ public class Postac {
     }
 
     public int losujObrazenia() {
-        int obrazenia = 0;
+        int obrazenia = this.premiaObrazen;
         Random r = new Random();
-        obrazenia += (r.nextInt() % this.kObrazen) + 1;
-        obrazenia += this.premiaObrazen;
+        obrazenia += Math.abs(r.nextInt()) % this.kObrazen + 1;
         return obrazenia;
     }
 
@@ -85,11 +89,16 @@ public class Postac {
         this.PW -= ilosc;
     }
    
+    public int ilePW()
+    {
+        return this.PW;
+    }
+    
     public int podajGracza ()
     {
         return this.gracz;
     }
-
+    
     public void okreslNumer (int n)
     {
         this.numer = n;
@@ -103,5 +112,43 @@ public class Postac {
     public String nazwaPostaci ()
     {
         return this.nazwa;
+    }
+
+    public int ileKP ()
+    {
+        return this.KP;
+    }
+    
+    public int ileAtak ()
+    {
+        return this.atak;
+    }
+    
+    public int ileKObrazen ()
+    {
+        return this.kObrazen;
+    }
+    
+    public int ilePremiaObrazen ()
+    {
+        return this.premiaObrazen;
+    }
+  
+    public int ileRuchu ()
+    {
+        return this.ruch;
+    }
+    
+    public int ileInicjatywy ()
+    {
+        return this.inicjatywa;
+    }
+    
+    public void losujInicjatywe ()
+    {
+        int ini = this.inicjatywa;
+        Random r = new Random();
+        ini += Math.abs(r.nextInt()) % 20 + 1;
+        this.inicjatywa = ini;
     }
 }

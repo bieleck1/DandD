@@ -69,11 +69,9 @@ public class Mapa
         {
             if (b.tablica.get(liczbaRozmieszczonych).podajGracza() != 0)
             {
-                for (int j=0; j < this.plansza.size(); j++)
-                {
-                    if (this.plansza.get(j).ktoZajmuje == 0 && this.plansza.get(j).czyDostepne() == true)
-                    {    
-                        this.plansza.get(j).ktoZajmuje = b.tablica.get(liczbaRozmieszczonych).jakiNumer();
+                for (Pole plansza1 : this.plansza) {
+                    if (plansza1.ktoZajmuje == 0 && plansza1.czyDostepne() == true) {
+                        plansza1.ktoZajmuje = b.tablica.get(liczbaRozmieszczonych).jakiNumer();
                         break;
                     }
                 }    
