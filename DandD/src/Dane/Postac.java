@@ -23,6 +23,8 @@ public class Postac {
     private int gracz;          //Kto steruje postacią
     private int numer;          //Numeracja postaci
     private int inicjatywa;     //Bonus inicjatywy; Inicjatywa
+    private int liczbaAtakow;   //Liczba atakow na ture
+    private String ksiegaCzarow;   //Indeksy znanych zaklec (0 - brak)
     
     
     public Postac(String dane) {
@@ -66,6 +68,14 @@ public class Postac {
                     
                 case 7:
                     this.inicjatywa = Integer.parseInt(wyraz);
+                    break;
+                
+                case 8:
+                    this.liczbaAtakow = Integer.parseInt(wyraz);
+                    break;
+                    
+                default:
+                    this.ksiegaCzarow+= wyraz;
                     break;
             }
             i++;
@@ -150,5 +160,15 @@ public class Postac {
         Random r = new Random();
         ini += Math.abs(r.nextInt()) % 20 + 1;
         this.inicjatywa = ini;
+    }
+    
+    public int ileAtakow ()
+    {
+        return this.liczbaAtakow;
+    }
+    
+    public boolean czyCzaruje ()
+    {
+        return this.ksiegaCzarow.charAt(0) == '0';
     }
 }

@@ -7,8 +7,8 @@ package Gra;
 
 import Dane.Mapa;
 import Dane.Bohaterowie;
-import static Tury.Ruch.ruchGracza;
-import static Tury.Ruch.ruchKomputera;
+import static Tury.Akcja.akcjaGracza;
+import static Tury.Akcja.akcjaKomputera;
 import Tury.Tura;
 
 /**
@@ -43,8 +43,9 @@ public class Gra {
             tury.dodajTure (postaci.tablica.get(i).jakiNumer(), postaci.tablica.get(i).ileInicjatywy());
         }
         tury.lista.sort(null);
-        
-        
+/*------------------------------------------------------------------------------\
+|                        WYŚWIETLIĆ GRAFIKĘ                                     |
+\------------------------------------------------------------------------------*/
         //TEST
         System.out.println(siatka);
         System.out.println(postaci);      
@@ -56,8 +57,8 @@ public class Gra {
         while ( postaci.liczbaPostaciGraczy() != 0 )
         {
             if (postaci.tablica.get( tury.lista.get(tury.obecna()).kto - 1).podajGracza() != 0)
-                ruchGracza(postaci, siatka, 0);
-            else ruchKomputera(postaci, siatka, 0);
+                akcjaGracza(postaci, siatka, tury.lista.get(tury.obecna()).kto);
+            else akcjaKomputera(postaci, siatka, tury.lista.get(tury.obecna()).kto);
 
             
             //TEST

@@ -12,9 +12,9 @@ import Dane.Mapa;
  *
  * @author Grzechu
  */
-public class Ruch {
-    public static void Ruch (Bohaterowie postaci, Mapa mapa, int czyjRuch)
+public class Czar {
+    public static void Czar (Bohaterowie postaci, Mapa mapa, int czyjRuch)
     {
-        System.out.println("Ruch");
+        System.out.println("Czar");
     }
 }

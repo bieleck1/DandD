@@ -6,6 +6,7 @@
 package Dane;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  *
