@@ -13,8 +13,8 @@ import Dane.Mapa;
  * @author Grzechu
  */
 public class Czar {
-    public static void Czar (Bohaterowie postaci, Mapa mapa, int czyjRuch)
+    public static void Czar (Bohaterowie postaci, Mapa mapa, int czyjRuch, int kierunek)
     {
-        System.out.println("Czar");
+        System.out.println("Czar" + kierunek);
     }
 }

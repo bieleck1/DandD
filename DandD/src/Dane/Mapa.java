@@ -117,6 +117,39 @@ public class Mapa
         
         return wydruk.toString();
     }
+    
+    public int znajdzBohatera (int numer)
+    {
+        int gdzie = 0;
+        
+        while (this.plansza.get(gdzie).ktoZajmuje != numer)
+            gdzie++;
+        
+        return gdzie;
+    }
+    
+    public int wymiarX ()
+    {
+        return this.wymiarX;
+    }
+    
+    public int wymiarY ()
+    {
+        return this.wymiarY;
+    }
+    
+    public int kosztRuchu (int dokad)
+    {
+        if (this.plansza.get(dokad).czyTrudny())
+            return 2;
+        else return 1;
+    }
+    
+    public void przemiesc (int kogo, int dokad)
+    {
+        this.plansza.get(znajdzBohatera(kogo)).ktoZajmuje = 0;
+        this.plansza.get(dokad).ktoZajmuje = kogo;
+    }
 }
 
 /*-----------------------------------------------------------

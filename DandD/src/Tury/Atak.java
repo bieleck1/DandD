@@ -13,8 +13,8 @@ import Dane.Mapa;
  * @author Grzechu
  */
 public class Atak {
-    public static void Atak (Bohaterowie postaci, Mapa mapa, int czyjRuch)
+    public static void Atak (Bohaterowie postaci, Mapa mapa, int czyjRuch, int kierunek)
     {
-        System.out.println("Atak");
+        System.out.println("Atak" + kierunek);
     }
 }

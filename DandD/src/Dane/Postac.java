@@ -13,18 +13,22 @@ import java.util.Random;
  */
 public class Postac {
 
-    private String nazwa;       //Nazwa postaci
-    private int PW;             //Punkty wyrzymałości
-    private int KP;             //Klasa pancerza
-    private int atak;           //Premia do ataku
-    private int kObrazen;       //Kość obrażeń
-    private int premiaObrazen;  //Premia do obrażeń
-    private int ruch;           //Punkty ruchu
-    private int gracz;          //Kto steruje postacią
-    private int numer;          //Numeracja postaci
-    private int inicjatywa;     //Bonus inicjatywy; Inicjatywa
-    private int liczbaAtakow;   //Liczba atakow na ture
-    private String ksiegaCzarow;   //Indeksy znanych zaklec (0 - brak)
+    private String nazwa;           //Nazwa postaci
+    private int PW;                 //Punkty wyrzymałości
+    private int KP;                 //Klasa pancerza
+    private int atak;               //Premia do ataku
+    private int kObrazen;           //Kość obrażeń
+    private int premiaObrazen;      //Premia do obrażeń
+    private int ruch;               //Punkty ruchu
+    private int gracz;              //Kto steruje postacią
+    private int numer;              //Numeracja postaci
+    private int inicjatywa;         //Bonus inicjatywy; Inicjatywa
+    private int liczbaAtakow;       //Liczba atakow na ture
+    private String ksiegaCzarow;    //Indeksy znanych zaklec (0 - brak)
+    //Pomocnicze
+    public int ruchPom = 0;
+    public int lAtakPom = 0;
+    
     
     
     public Postac(String dane) {
@@ -170,5 +174,11 @@ public class Postac {
     public boolean czyCzaruje ()
     {
         return this.ksiegaCzarow.charAt(0) == '0';
+    }
+    
+    public void resetPom ()
+    {
+        this.ruchPom = this.ruch;
+        this.lAtakPom = this.liczbaAtakow;
     }
 }

@@ -32,4 +32,9 @@ public class Pole {
     {
         return this.typTerenu;
     }
+    
+    public boolean czyTrudny ()
+    {
+        return this.typTerenu == 2;
+    }
 }

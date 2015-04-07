@@ -39,12 +39,12 @@ public class Bohaterowie {
             wydruk.append(tablica.get(i).jakiNumer()).append(" ");
             wydruk.append(tablica.get(i).podajGracza()).append(" ");
             wydruk.append(tablica.get(i).nazwaPostaci()).append(" ");
-            wydruk.append(tablica.get(i).ilePW()).append(" ");
-            wydruk.append(tablica.get(i).ileKP()).append(" ");
-            wydruk.append(tablica.get(i).ileAtak()).append(" ");
-            wydruk.append(tablica.get(i).ileKObrazen()).append(" ");
-            wydruk.append(tablica.get(i).ileRuchu()).append(" ");
-            wydruk.append(tablica.get(i).ileInicjatywy()).append(" ");
+            wydruk.append(tablica.get(i).ilePW()).append("PW ");
+            wydruk.append(tablica.get(i).ileKP()).append("KP ");
+            wydruk.append(tablica.get(i).ileAtak()).append("BA ");
+            wydruk.append(tablica.get(i).ileKObrazen()).append("kObr ");
+            wydruk.append(tablica.get(i).ileRuchu()).append("Szyb ");
+            wydruk.append(tablica.get(i).ileInicjatywy()).append("Ini ");
             wydruk.append("\n");
         }
         

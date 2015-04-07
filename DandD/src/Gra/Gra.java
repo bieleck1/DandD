@@ -56,9 +56,11 @@ public class Gra {
         
         while ( postaci.liczbaPostaciGraczy() != 0 )
         {
+            postaci.tablica.get( tury.lista.get(tury.obecna()).kto - 1).resetPom();
+            
             if (postaci.tablica.get( tury.lista.get(tury.obecna()).kto - 1).podajGracza() != 0)
-                akcjaGracza(postaci, siatka, tury.lista.get(tury.obecna()).kto);
-            else akcjaKomputera(postaci, siatka, tury.lista.get(tury.obecna()).kto);
+                akcjaGracza(postaci, siatka, tury.lista.get(tury.obecna()).kto - 1);
+            else akcjaKomputera(postaci, siatka, tury.lista.get(tury.obecna()).kto - 1);
 
             
             //TEST
