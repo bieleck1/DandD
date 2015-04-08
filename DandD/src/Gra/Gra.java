@@ -56,20 +56,23 @@ public class Gra {
         
         while ( postaci.liczbaPostaciGraczy() != 0 )
         {
-            postaci.tablica.get( tury.lista.get(tury.obecna()).kto - 1).resetPom();
-            
-            if (postaci.tablica.get( tury.lista.get(tury.obecna()).kto - 1).podajGracza() != 0)
-                akcjaGracza(postaci, siatka, tury.lista.get(tury.obecna()).kto - 1);
-            else akcjaKomputera(postaci, siatka, tury.lista.get(tury.obecna()).kto - 1);
+            if (postaci.tablica.get(tury.lista.get(tury.obecna()).kto - 1).zywy)
+            {
+                postaci.tablica.get( tury.lista.get(tury.obecna()).kto - 1).resetPom();
 
-            
+                if (postaci.tablica.get( tury.lista.get(tury.obecna()).kto - 1).podajGracza() != 0)
+                    akcjaGracza(postaci, siatka, tury.lista.get(tury.obecna()).kto - 1);
+                else akcjaKomputera(postaci, siatka, tury.lista.get(tury.obecna()).kto - 1);
+
+            } 
             //TEST
             System.out.println(ogranicznikTest + "   " + tury.lista.get(tury.obecna()).kto);
             ogranicznikTest++;
-            if (ogranicznikTest == 12)
-                break;
+            //if (ogranicznikTest == 16)
+            //   break;
             
             tury.nastepna();
         }
+        System.out.println("\nKONIEC GRY");
     }
 }

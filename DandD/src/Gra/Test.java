@@ -16,10 +16,10 @@ public class Test {
     public static void main(String[] args)
     {
         String mapa = "4;7;0;0;0;1;2;0;0;0;1;2;2;0;0;1;0;2;2;0;1;0;0;2;2;1;0;0;1;0;";
-        String pionki = "Bronco;20;10;3;10;2;4;3;!;"
-                      + "Jarco;23;9;4;11;3;3;4;!;"
-                      + "[K]Krool;24;10;3;10;2;4;1;!;"
-                      + "[K]Kuajgon;21;10;3;10;2;4;0;!;";
+        String pionki = "Bronco;20;10;3;10;20;3;2;4;3;1;!;"
+                      + "Jarco;23;9;4;11;19;2;3;3;4;1;!;"
+                      + "[K]Krool;24;10;3;10;20;3;2;4;1;1;!;"
+                      + "[K]Kuajgon;21;10;3;10;19;2;2;4;0;1;!;";
         
         gra(mapa, pionki);
         

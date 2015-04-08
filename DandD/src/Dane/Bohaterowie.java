@@ -64,4 +64,10 @@ public class Bohaterowie {
             return gracz;
         else return komp;
     }
+    
+    public void smierc (int kto)
+    {
+        this.iloscPostaci--;
+        this.tablica.get(kto).zywy = false;
+    }
 }

@@ -29,12 +29,12 @@ public class Mapa
         
         int dlugosc = dane.length();
         String wyraz = dane.substring(0, dane.indexOf(';'));
-        this.wymiarX = Integer.parseInt(wyraz);
+        this.wymiarY = Integer.parseInt(wyraz);
         String pom;
         pom = dane.substring(dane.indexOf(';') + 1);
         dane = pom;
         wyraz = dane.substring(0, dane.indexOf(';'));
-        this.wymiarY = Integer.parseInt(wyraz);
+        this.wymiarX = Integer.parseInt(wyraz);
         pom = dane.substring(dane.indexOf(';') + 1);
         dane = pom;
 
@@ -48,8 +48,8 @@ public class Mapa
             plansza.add(p);
 
             i++;
-            if (i % this.wymiarX == 0) {
-                i -= this.wymiarX;
+            if (i % this.wymiarY == 0) {
+                i -= this.wymiarY;
                 j++;
             }
             
@@ -96,9 +96,9 @@ public class Mapa
     {
         StringBuilder wydruk = new StringBuilder();
         int i=0, j=0, pole=0;
-        while ( i < this.wymiarX )
+        while ( i < this.wymiarY )
         {
-            while (j < this.wymiarY)
+            while (j < this.wymiarX)
             {
                 wydruk.append(this.plansza.get(pole).typTerenu());
                 j++;
@@ -118,6 +118,32 @@ public class Mapa
         return wydruk.toString();
     }
     
+    public String druk ()
+    {
+        StringBuilder wydruk = new StringBuilder();
+        int i=0, j=0, pole=0;
+        while ( i < this.wymiarY )
+        {
+            while (j < this.wymiarX)
+            {
+                if (this.plansza.get(pole).typTerenu() == 1)
+                    wydruk.append("X");
+                else if (this.plansza.get(pole).typTerenu() == 2 && this.plansza.get(pole).czyDostepne())
+                    wydruk.append("#");
+                else if (this.plansza.get(pole).typTerenu() == 3 && this.plansza.get(pole).czyDostepne())
+                    wydruk.append("$");
+                else wydruk.append(this.plansza.get(pole).ktoZajmuje);
+               
+                j++;
+                pole++;
+            }
+            i++;
+            j=0;
+            wydruk.append("\n");
+        }    
+        return wydruk.toString();
+    }
+    
     public int znajdzBohatera (int numer)
     {
         int gdzie = 0;
@@ -125,7 +151,9 @@ public class Mapa
         while (this.plansza.get(gdzie).ktoZajmuje != numer)
             gdzie++;
         
-        return gdzie;
+        if (this.plansza.get(gdzie).ktoZajmuje == numer)
+            return gdzie;
+        else return -1;
     }
     
     public int wymiarX ()
@@ -169,6 +197,6 @@ public class Mapa
  |0 - zwykłe pole                                             |
  |1 - niedostępne pole (np. ściana)                           |
  |2 - trudny teren (koszt ruchu 2, np. gruz, krzaki)          |
- |3 -                                                         |
+ |3 - zwłoki                                                  |
  |4 -                                                         |
  ------------------------------------------------------------*/

@@ -25,7 +25,7 @@ public class Pole {
 
     public boolean czyDostepne ()
     {
-        return this.typTerenu != 1 && this.typTerenu != 3 && this.ktoZajmuje == 0;
+        return this.typTerenu != 1 && this.ktoZajmuje == 0;
     }
     
     public int typTerenu ()
@@ -35,6 +35,12 @@ public class Pole {
     
     public boolean czyTrudny ()
     {
-        return this.typTerenu == 2;
+        return this.typTerenu == 2 || this.typTerenu == 3;
+    }
+    
+    public void zwloki ()
+    {
+        this.typTerenu = 3;
+        this.ktoZajmuje = 0;
     }
 }

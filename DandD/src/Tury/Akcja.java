@@ -43,7 +43,9 @@ public class Akcja {
                     break;
 
                 case 'A':
-                    Atak(postaci, mapa, czyjRuch, kierunek);
+                    if (postaci.tablica.get(czyjRuch).lAtakPom > 0)
+                        Atak(postaci, mapa, czyjRuch, kierunek);
+                    else System.out.println("Wykorzystano limit ataków");
                     break;
 
                 case 'C':
@@ -52,6 +54,10 @@ public class Akcja {
                     
                 case 'S':
                     koniec = false;
+                    break;
+                    
+                case 'M':
+                    System.out.println(mapa.druk());
                     break;
             }
         }
@@ -67,7 +73,7 @@ public class Akcja {
     
     private static int ustalKierunek (Mapa mapa, int czyjRuch, int kierunek)
     {
-       int skad = mapa.znajdzBohatera(czyjRuch);
+       int skad = mapa.znajdzBohatera(czyjRuch+1);
        
        //Sprawdzanie czy dany kierunek nie wychodzi poza planszę
        if ( skad == 0 )

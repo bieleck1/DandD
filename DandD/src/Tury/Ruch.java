@@ -25,21 +25,21 @@ public class Ruch {
         
         if (kierunek == -2)
         {
-            System.out.println("Znajdujesz się na polu " + mapa.znajdzBohatera(czyjRuch));
+            System.out.println("Znajdujesz się na polu " + mapa.znajdzBohatera(czyjRuch+1));
             return;
         }
         
         
         //Ruch po prostej
-        if (kierunek == mapa.znajdzBohatera(czyjRuch) + mapa.wymiarX()
-                || kierunek == mapa.znajdzBohatera(czyjRuch) - mapa.wymiarX()
-                || kierunek == mapa.znajdzBohatera(czyjRuch) + 1
-                || kierunek == mapa.znajdzBohatera(czyjRuch) - 1)
+        if (kierunek == mapa.znajdzBohatera(czyjRuch+1) + mapa.wymiarX()
+                || kierunek == mapa.znajdzBohatera(czyjRuch+1) - mapa.wymiarX()
+                || kierunek == mapa.znajdzBohatera(czyjRuch+1) + 1
+                || kierunek == mapa.znajdzBohatera(czyjRuch+1) - 1)
             if (postaci.tablica.get(czyjRuch).ruchPom >= mapa.kosztRuchu(kierunek))
             {
                 if (mapa.plansza.get(kierunek).czyDostepne())
                 {
-                    mapa.przemiesc(czyjRuch, kierunek);
+                    mapa.przemiesc(czyjRuch+1, kierunek);
                     postaci.tablica.get(czyjRuch).ruchPom -= mapa.kosztRuchu(kierunek);
                 }
                 else System.out.println("Pole niedostępne");
@@ -50,7 +50,7 @@ public class Ruch {
         else if (postaci.tablica.get(czyjRuch).ruchPom >= mapa.kosztRuchu(kierunek) + 1 )
                 if (mapa.plansza.get(kierunek).czyDostepne())
                 {
-                    mapa.przemiesc(czyjRuch, kierunek);
+                    mapa.przemiesc(czyjRuch+1, kierunek);
                     postaci.tablica.get(czyjRuch).ruchPom -= mapa.kosztRuchu(kierunek) + 1;
                 }
                 else System.out.println("Pole niedostępne");

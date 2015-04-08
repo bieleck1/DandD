@@ -18,6 +18,8 @@ public class Postac {
     private int KP;                 //Klasa pancerza
     private int atak;               //Premia do ataku
     private int kObrazen;           //Kość obrażeń
+    private int krytykZakres;       //Minimalna wartość wymagana do krytyka
+    private int krytykMnoznik;      //Przelicznik obrażeń krytycznych
     private int premiaObrazen;      //Premia do obrażeń
     private int ruch;               //Punkty ruchu
     private int gracz;              //Kto steruje postacią
@@ -28,6 +30,7 @@ public class Postac {
     //Pomocnicze
     public int ruchPom = 0;
     public int lAtakPom = 0;
+    public boolean zywy;
     
     
     
@@ -63,18 +66,26 @@ public class Postac {
                     break;
 
                 case 5:
-                    this.premiaObrazen = Integer.parseInt(wyraz);
+                    this.krytykZakres = Integer.parseInt(wyraz);
                     break;
-
+                    
                 case 6:
-                    this.ruch = Integer.parseInt(wyraz);
+                    this.krytykMnoznik = Integer.parseInt(wyraz);
                     break;
                     
                 case 7:
+                    this.premiaObrazen = Integer.parseInt(wyraz);
+                    break;
+
+                case 8:
+                    this.ruch = Integer.parseInt(wyraz);
+                    break;
+                    
+                case 9:
                     this.inicjatywa = Integer.parseInt(wyraz);
                     break;
                 
-                case 8:
+                case 10:
                     this.liczbaAtakow = Integer.parseInt(wyraz);
                     break;
                     
@@ -90,6 +101,8 @@ public class Postac {
 
             dlugosc = dane.length();
             }
+        
+        this.zywy = true;
     }
 
     public int losujObrazenia() {
@@ -138,9 +151,28 @@ public class Postac {
         return this.atak;
     }
     
+    public int losujAtak ()
+    {
+        int rzut = this.atak;
+        Random r = new Random();
+        rzut += Math.abs(r.nextInt()) % 20 + 1;
+        return rzut;
+    }
+    
     public int ileKObrazen ()
     {
         return this.kObrazen;
+    }
+    
+    public int ileDoKrytyka ()
+    {
+        return this.krytykZakres;
+    }
+    
+    public int losujKrytyk ()
+    {
+        int obrazenia = this.krytykMnoznik * (this.kObrazen + this.premiaObrazen);
+        return obrazenia;
     }
     
     public int ilePremiaObrazen ()
