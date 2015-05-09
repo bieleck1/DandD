@@ -28,16 +28,17 @@ public class Akcja {
     static boolean x = true;
 
     public static void akcjaGracza(Bohaterowie postaci, Mapa mapa, int czyjRuch) {
-        
-        bohater = postaci.tablica.get(czyjRuch+1);
+
+        bohater = postaci.tablica.get(czyjRuch + 1);
         podajStaty(bohater);
         bohater = postaci.tablica.get(czyjRuch);
         podajStatyW(bohater);
         tablicaKierunek();
         boolean koniec = true;
         GUI2 gui2;
-        if(x)
-        gui2 = new GUI2();
+        if (x) {
+            gui2 = new GUI2();
+        }
         x = false;
         while (koniec) {
 ///////////////////ROZWIĄZANIE CHWILOWE, TE INFORMACJE POWINNY PRZYCISKI DAWAĆ, A NIE KLAWIATURA\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -65,8 +66,10 @@ public class Akcja {
                 }
             }
             tablica[5] = 1;
-            bohater = postaci.tablica.get(czyjRuch);
+            bohater = postaci.tablica.get(czyjRuch + 1);
             podajStaty(bohater);
+            bohater = postaci.tablica.get(czyjRuch);
+            podajStatyW(bohater);
             switch (akcja) {
                 case 'R':
 

@@ -15,7 +15,7 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class GUI2 extends javax.swing.JFrame {
-    
+
     static String komenda;
     public int aa = 0;
     Clip clip2 = music();
@@ -41,8 +41,8 @@ public class GUI2 extends javax.swing.JFrame {
         LG.setEnabled(false);
         LD.setEnabled(false);
         NaSiebie.setEnabled(false);
-          aktualizujBohatera(getPostac());
-          aktualizujWroga(getPostacW());
+        aktualizujBohatera(getPostac());
+        aktualizujWroga(getPostacW());
     }
 
     @SuppressWarnings("unchecked")
@@ -303,17 +303,17 @@ public class GUI2 extends javax.swing.JFrame {
         jPanel1.add(PD);
         PD.setBounds(170, 280, 80, 23);
         jPanel1.add(ImieW);
-        ImieW.setBounds(420, 160, 90, 20);
+        ImieW.setBounds(440, 160, 90, 20);
         jPanel1.add(ŻycieW);
-        ŻycieW.setBounds(420, 180, 90, 20);
+        ŻycieW.setBounds(440, 180, 90, 20);
         jPanel1.add(KlasaPancerzaW);
-        KlasaPancerzaW.setBounds(430, 200, 100, 20);
+        KlasaPancerzaW.setBounds(440, 200, 100, 20);
         jPanel1.add(BazowyAtakW);
-        BazowyAtakW.setBounds(430, 210, 100, 20);
+        BazowyAtakW.setBounds(440, 240, 100, 20);
         jPanel1.add(KOBRW);
-        KOBRW.setBounds(440, 260, 90, 20);
+        KOBRW.setBounds(440, 220, 90, 20);
         jPanel1.add(SPEEDW);
-        SPEEDW.setBounds(430, 240, 80, 20);
+        SPEEDW.setBounds(440, 260, 80, 20);
         jPanel1.add(INITW);
         INITW.setBounds(440, 280, 110, 20);
 
@@ -322,8 +322,13 @@ public class GUI2 extends javax.swing.JFrame {
         Stan.setBounds(20, 330, 560, 50);
 
         Help.setText("Help");
+        Help.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HelpActionPerformed(evt);
+            }
+        });
         jPanel1.add(Help);
-        Help.setBounds(520, 30, 53, 23);
+        Help.setBounds(520, 30, 70, 23);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 600, 405);
@@ -346,10 +351,14 @@ public class GUI2 extends javax.swing.JFrame {
     }//GEN-LAST:event_DółActionPerformed
 
     private void GóraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GóraActionPerformed
+        komenda = "R8";
+        podajKomende(komenda);
         poruszaj(0, -1);
     }//GEN-LAST:event_GóraActionPerformed
 
     private void LewoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LewoActionPerformed
+        komenda = "R4";
+        podajKomende(komenda);
         poruszaj(-1, 0);
     }//GEN-LAST:event_LewoActionPerformed
 
@@ -374,20 +383,32 @@ public class GUI2 extends javax.swing.JFrame {
     }//GEN-LAST:event_MusicActionPerformed
 
     private void LGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LGActionPerformed
+        komenda = "R7";
+        podajKomende(komenda);
         poruszaj(-1, -1);
     }//GEN-LAST:event_LGActionPerformed
 
     private void PGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PGActionPerformed
+        komenda = "R9";
+        podajKomende(komenda);
         poruszaj(1, -1);
     }//GEN-LAST:event_PGActionPerformed
 
     private void PDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PDActionPerformed
+        komenda = "R3";
+        podajKomende(komenda);
         poruszaj(1, 1);
     }//GEN-LAST:event_PDActionPerformed
 
     private void LDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LDActionPerformed
+        komenda = "R1";
+        podajKomende(komenda);
         poruszaj(-1, 1);
     }//GEN-LAST:event_LDActionPerformed
+
+    private void HelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HelpActionPerformed
+        Help help = new Help();
+    }//GEN-LAST:event_HelpActionPerformed
 
     public static void main(String args[]) {
 
@@ -480,64 +501,79 @@ public Clip music() {
     public void dButton() {
         int[] tab = tablicaKierunek();
        // for (int k = 0; k < 10; k++) {
-       //     System.out.print(tab[k]);
-      //  }
+        //     System.out.print(tab[k]);
+        //  }
         System.out.println("");
         for (int ii = 0; ii < 10; ii++) {
             if (tab[ii] == 0 && ii == 0) {
                 Atak.setEnabled(false);
-            } 
-            if (tab[ii] == 1 && ii == 0)
+            }
+            if (tab[ii] == 1 && ii == 0) {
                 Atak.setEnabled(true);
-            
+            }
+
             if (tab[ii] == 0 && ii == 1) {
                 LD.setEnabled(false);
-            } 
-            if (tab[ii] == 1 && ii == 1)
+            }
+            if (tab[ii] == 1 && ii == 1) {
                 LD.setEnabled(true);
-            
+            }
+
             if (tab[ii] == 0 && ii == 2) {
                 Dół.setEnabled(false);
-            } 
-            if (tab[ii] == 1 && ii == 2)
+            }
+            if (tab[ii] == 1 && ii == 2) {
                 Dół.setEnabled(true);
-            
+            }
+
             if (tab[ii] == 0 && ii == 3) {
                 PD.setEnabled(false);
-            } 
-            if (tab[ii] == 0 && ii == 3)
-                PD.setEnabled(true);          
+            }
+            if (tab[ii] == 1 && ii == 3) {
+                PD.setEnabled(true);
+            }
             if (tab[ii] == 0 && ii == 4) {
                 Lewo.setEnabled(false);
-            } if (tab[ii] == 1 && ii == 4)
+            }
+            if (tab[ii] == 1 && ii == 4) {
                 Lewo.setEnabled(true);
-            
+            }
+
             if (tab[ii] == 0 && ii == 5) {
                 NaSiebie.setEnabled(false);
-            } if (tab[ii] == 1 && ii == 5)
+            }
+            if (tab[ii] == 1 && ii == 5) {
                 NaSiebie.setEnabled(true);
-            
+            }
+
             if (tab[ii] == 0 && ii == 6) {
                 Prawo.setEnabled(false);
-            } 
-            if (tab[ii] == 1 && ii == 6)
+            }
+            if (tab[ii] == 1 && ii == 6) {
                 Prawo.setEnabled(true);
-            
+            }
+
             if (tab[ii] == 0 && ii == 7) {
                 LG.setEnabled(false);
-            } if (tab[ii] == 1 && ii == 7)
+            }
+            if (tab[ii] == 1 && ii == 7) {
                 LG.setEnabled(true);
-            
+            }
+
             if (tab[ii] == 0 && ii == 8) {
                 Góra.setEnabled(false);
-            } if (tab[ii] == 1 && ii == 8)
+            }
+            if (tab[ii] == 1 && ii == 8) {
                 Góra.setEnabled(true);
-            
+            }
+
             if (tab[ii] == 0 && ii == 9) {
                 PG.setEnabled(false);
-            } if (tab[ii] == 1 && ii == 9)
+            }
+            if (tab[ii] == 1 && ii == 9) {
                 PG.setEnabled(true);
-            
+            }
+
         }
     }
 
@@ -564,5 +600,4 @@ public Clip music() {
 
     }
 
- 
 }
