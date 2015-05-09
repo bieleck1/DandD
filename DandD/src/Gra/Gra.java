@@ -43,9 +43,9 @@ public class Gra {
             tury.dodajTure (postaci.tablica.get(i).jakiNumer(), postaci.tablica.get(i).ileInicjatywy());
         }
         tury.lista.sort(null);
-/*------------------------------------------------------------------------------\
-|                        WYŚWIETLIĆ GRAFIKĘ                                     |
-\------------------------------------------------------------------------------*/
+
+        
+        
         //TEST
         System.out.println(siatka);
         System.out.println(postaci);      

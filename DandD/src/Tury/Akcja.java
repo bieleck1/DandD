@@ -17,9 +17,21 @@ import java.util.Scanner;
  * @author Grzechu
  */
 public class Akcja {
+    static int []tablica = {0,0,0,0,0,0,0,0,0,0};
     
     public static void akcjaGracza (Bohaterowie postaci, Mapa mapa, int czyjRuch)
-    {
+    {    
+        for (int i = 1; i < 10; i++)
+        {
+            if (ustalKierunek(mapa, czyjRuch, i) > 0)
+            {
+                tablica[i] = 1;
+                if (mapa.plansza.get(ustalKierunek(mapa, czyjRuch, i)).ktoZajmuje > 1)
+                    tablica[0] = 1;
+            }
+        }
+        tablica[5] = 1;
+        
         boolean koniec = true;
         while (koniec)
         {
@@ -145,4 +157,11 @@ public class Akcja {
         
         return kierunek;
     }
+    
+    
+        public static int []tablicaKierunek ()
+    {
+        return tablica;
+    }
+
 }
