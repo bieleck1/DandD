@@ -15,6 +15,7 @@ public class Test {
     
     public static void main(String[] args)
     {
+        GUI2 gui2 = new GUI2();
         String mapa = "4;7;0;0;0;1;2;0;0;0;1;2;2;0;0;1;0;2;2;0;1;0;0;2;2;1;0;0;1;0;";
         String pionki = "Bronco;20;10;3;10;20;3;2;4;3;1;!;"
                       + "Jarco;23;9;4;11;19;2;3;3;4;1;!;"
