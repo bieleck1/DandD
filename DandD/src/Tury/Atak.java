@@ -79,8 +79,8 @@ public class Atak {
             if (obrazenia > (postaci.tablica.get(czyjRuch).ileKObrazen() + postaci.tablica.get(czyjRuch).ilePremiaObrazen()))
                 System.out.println("Atak krytyczny w " + kierunek + " - zadano " + obrazenia + " punktów obrażeń");
             else System.out.println("Atak w " + kierunek + " - zadano " + obrazenia + " punktów obrażeń ( " + BA + " + " + (testAtaku - BA) + " >= " + KP + " )");
-            postaci.tablica.get(czyjRuch).lAtakPom--;
         }    
         else System.out.println("Atak w " + kierunek + " - zakończony niepowodzeniem ( " + BA + " + " + (testAtaku - BA) + " < " + KP + " )");
+        postaci.tablica.get(czyjRuch).lAtakPom--;
     }
 }
