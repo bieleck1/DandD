@@ -53,4 +53,5 @@ public class Tura {
             obecnie = 0;
         else obecnie++;
     }
+ 
 }
