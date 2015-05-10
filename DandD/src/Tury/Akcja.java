@@ -220,8 +220,9 @@ public class Akcja {
                 tablica[i] = 1;
             else tablica[i] = 0;
             
-            //if (mapa.plansza.get(kierunek).ktoZajmuje > 1)
-            //    tablica[0] = 1;
+            if (kierunek > 0)
+                if (mapa.plansza.get(kierunek).ktoZajmuje > 1)
+                    tablica[0] = 1;
             
         }
         tablica[5] = 1;
