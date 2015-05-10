@@ -6,6 +6,9 @@ import static Tury.Komenda.getPostac;
 import static Tury.Komenda.getPostacW;
 import static Tury.Komenda.podajKomende;
 import java.awt.Point;
+import java.awt.Robot;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import javax.sound.sampled.AudioInputStream;
@@ -13,6 +16,7 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.swing.Timer;
 
 public class GUI2 extends javax.swing.JFrame {
 
@@ -33,7 +37,7 @@ public class GUI2 extends javax.swing.JFrame {
         setSize(640, 480);
         setVisible(true);
         setLocationRelativeTo(null);
-        //dButton();
+        //  dButton();
         Góra.setEnabled(false);
         Lewo.setEnabled(false);
         Atak.setEnabled(false);
@@ -490,17 +494,38 @@ public Clip music() {
     }
 
     public void poruszaj(int i, int j) {
+        dButton();
         a = Gracz.getLocation();
         nowax = a.x + i * Gracz.getWidth();
         noway = a.y + j * Gracz.getHeight();
         Gracz.setLocation(nowax, noway);
-        dButton();
+
         //aktualizujBohatera();
     }
+    private Timer timer;
+    int[] tab;
 
     public void dButton() {
-        int[] tab = tablicaKierunek();
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
 
+        tab = tablicaKierunek();
+
+        for (int k = 9; k >= 0; k = k - 3) {
+            System.out.print(tab[k - 2]);
+            System.out.print(tab[k - 1]);
+            System.out.print(tab[k]);
+            System.out.println();
+
+            if (k == 3) {
+                System.out.print(tab[0]);
+                k--;
+                System.out.println();
+            }
+        }
         for (int ii = 0; ii < 10; ii++) {
             if (tab[ii] == 0 && ii == 0) {
                 Atak.setEnabled(false);
@@ -572,6 +597,8 @@ public Clip music() {
             }
 
         }
+
+        
     }
 
     public void aktualizujBohatera(Postac B) {

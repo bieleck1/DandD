@@ -6,6 +6,8 @@
 package Tury;
 
 import Dane.Postac;
+import static Tury.Akcja.tablica;
+import static Tury.Akcja.tablicaKierunek;
 
 /**
  *
@@ -41,4 +43,5 @@ public class Komenda {
     public synchronized static void podajStatyW(Postac HeroW){
         C = HeroW;
     }
+  
 }
