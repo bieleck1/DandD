@@ -59,4 +59,34 @@ public class Ruch {
         ////////////////////////ODŚWIEŻANIE GRAFIKI PO RUCHU\\\\\\\\\\\\\\\\\\\\
         System.out.println("Ruch " + kierunek);
     }
+
+    public static boolean RuchSprawdz (Bohaterowie postaci, Mapa mapa, int czyjRuch, int kierunek)
+    {
+        //Komunikaty są testowe (chyba, że dziennik będzie wyświetlany)
+        
+        if (kierunek == -3 || kierunek == -1)
+           return false;
+        
+        if (kierunek == -2)
+            return false;
+        
+        
+        //Ruch po prostej
+        if (kierunek == mapa.znajdzBohatera(czyjRuch+1) + mapa.wymiarX()
+                || kierunek == mapa.znajdzBohatera(czyjRuch+1) - mapa.wymiarX()
+                || kierunek == mapa.znajdzBohatera(czyjRuch+1) + 1
+                || kierunek == mapa.znajdzBohatera(czyjRuch+1) - 1)
+            if (postaci.tablica.get(czyjRuch).ruchPom >= mapa.kosztRuchu(kierunek))
+            {
+            return mapa.plansza.get(kierunek).czyDostepne();
+            }
+            else return false;
+        
+        //Ruch po skosie
+        else if (postaci.tablica.get(czyjRuch).ruchPom >= mapa.kosztRuchu(kierunek) + 1 )
+                return mapa.plansza.get(kierunek).czyDostepne();
+            else return false;
+    }
+
+
 }

@@ -15,6 +15,7 @@ import static Tury.Komenda.getKomenda;
 import static Tury.Komenda.podajStaty;
 import static Tury.Komenda.podajStatyW;
 import static Tury.Ruch.Ruch;
+import static Tury.Ruch.RuchSprawdz;
 import java.util.Scanner;
 
 /**
@@ -53,37 +54,32 @@ public class Akcja {
                 }
             }
 ///////////////////ROZWIĄZANIE CHWILOWE, TE INFORMACJE POWINNY PRZYCISKI DAWAĆ, A NIE KLAWIATURA\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-            for (int i = 0; i < 10; i++) {
-                tablica[i] = 0;
-            }
+            
+            uzupelnijTablice(tablica, postaci, mapa, czyjRuch);
 
-            for (int i = 1; i < 10; i++) {
-                if (ustalKierunek(mapa, czyjRuch, i) > 0) {
-                    tablica[i] = 1;
-                    if (mapa.plansza.get(ustalKierunek(mapa, czyjRuch, i)).ktoZajmuje > 1) {
-                        tablica[0] = 1;
-                    }
-                }
-            }
-            tablica[5] = 1;
             bohater = postaci.tablica.get(czyjRuch + 1);
             podajStaty(bohater);
+            
             bohater = postaci.tablica.get(czyjRuch);
             podajStatyW(bohater);
+            
+            
             switch (akcja) {
                 case 'R':
-
+                    uzupelnijTablice(tablica, postaci, mapa, czyjRuch);
                     Ruch(postaci, mapa, czyjRuch, kierunek);
-                    for (int i = 1; i < 10; i++) {
-                        if (ustalKierunek(mapa, czyjRuch, i) > 0) {
-                            tablica[i] = 1;
-                            if (mapa.plansza.get(ustalKierunek(mapa, czyjRuch, i)).ktoZajmuje > 1) {
-                                tablica[0] = 1;
-                            }
-                        }
-                    }
-                    for (int k = 0; k < 10; k++) {
+                    
+                    for (int k = 9; k >= 0; k = k - 3)
+                    {
+                        System.out.print(tablica[k-2]);
+                        System.out.print(tablica[k-1]);
                         System.out.print(tablica[k]);
+                        System.out.println();
+                        if (k==3)
+                        {
+                            System.out.print(tablica[0]);
+                            k--;
+                        }
                     }
                     break;
 
@@ -209,6 +205,26 @@ public class Akcja {
 
     public static int[] tablicaKierunek() {
         return tablica;
+    }
+
+    private static void uzupelnijTablice(int[] tablica, Bohaterowie postaci, Mapa mapa, int czyjRuch)
+    {
+        for (int i = 0; i < 10; i++)
+            tablica[i] = 0;
+        
+        int kierunek;
+        for (int i = 1; i < 10; i++)
+        {
+            kierunek = ustalKierunek(mapa, czyjRuch, i);
+            if(RuchSprawdz(postaci, mapa, czyjRuch, kierunek))
+                tablica[i] = 1;
+            else tablica[i] = 0;
+            
+            //if (mapa.plansza.get(kierunek).ktoZajmuje > 1)
+            //    tablica[0] = 1;
+            
+        }
+        tablica[5] = 1;
     }
 
 }

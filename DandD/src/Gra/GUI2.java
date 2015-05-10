@@ -500,10 +500,7 @@ public Clip music() {
 
     public void dButton() {
         int[] tab = tablicaKierunek();
-       // for (int k = 0; k < 10; k++) {
-        //     System.out.print(tab[k]);
-        //  }
-        System.out.println("");
+
         for (int ii = 0; ii < 10; ii++) {
             if (tab[ii] == 0 && ii == 0) {
                 Atak.setEnabled(false);
@@ -578,7 +575,6 @@ public Clip music() {
     }
 
     public void aktualizujBohatera(Postac B) {
-        System.out.println(B.nazwaPostaci());
         Imie.setText(B.nazwaPostaci());
         Życie.setText(Integer.toString(B.ilePW()));
         KlasaPancerza.setText(Integer.toString(B.ileKP()));
