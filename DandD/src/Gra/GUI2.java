@@ -5,7 +5,6 @@ import static Tury.Akcja.tablicaKierunek;
 import static Tury.Komenda.getPostac;
 import static Tury.Komenda.getPostacW;
 import static Tury.Komenda.podajKomende;
-import static Tury.Komenda.wezStan;
 import java.awt.Point;
 import java.io.File;
 import java.io.IOException;
@@ -45,7 +44,6 @@ public class GUI2 extends javax.swing.JFrame {
         NaSiebie.setEnabled(false);
         aktualizujBohatera(getPostac());
         aktualizujWroga(getPostacW());
-        Stan.setText("Witaj Bohaterze!");
     }
 
     @SuppressWarnings("unchecked")
@@ -373,7 +371,6 @@ public class GUI2 extends javax.swing.JFrame {
     private void skipturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skipturaActionPerformed
         komenda = "S";
         podajKomende(komenda);
-        dButton();
     }//GEN-LAST:event_skipturaActionPerformed
 
     private void MusicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MusicActionPerformed
@@ -417,7 +414,8 @@ public class GUI2 extends javax.swing.JFrame {
 
     private void HelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HelpActionPerformed
         Help help = new Help();
-       
+         komenda = "M";
+        podajKomende(komenda);
     }//GEN-LAST:event_HelpActionPerformed
 
     private void AtakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtakActionPerformed
@@ -523,7 +521,7 @@ public Clip music() {
         } catch (InterruptedException ex) {
             Thread.currentThread().interrupt();
         }
-        Stan.setText(wezStan());
+
         tab = tablicaKierunek();
 
         for (int k = 9; k >= 0; k = k - 3) {
