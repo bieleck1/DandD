@@ -9,6 +9,7 @@ import Dane.Bohaterowie;
 import Dane.Mapa;
 import Dane.Postac;
 import Gra.GUI2;
+import Gra.GUIStart;
 import static Tury.Atak.Atak;
 import static Tury.Czar.Czar;
 import static Tury.Komenda.getKomenda;
@@ -35,9 +36,9 @@ public class Akcja {
         podajStatyW(bohater);
         tablicaKierunek();
         boolean koniec = true;
-        GUI2 gui2;
+        GUIStart gui2;
         if (x) {
-            gui2 = new GUI2();
+            gui2 = new GUIStart();
         }
         x = false;
         while (koniec) {
@@ -70,7 +71,7 @@ public class Akcja {
                     
                     Ruch(postaci, mapa, czyjRuch, kierunek);
                     uzupelnijTablice(tablica, postaci, mapa, czyjRuch);
-                   for (int k = 9; k >= 0; k = k - 3) {
+                /*   for (int k = 9; k >= 0; k = k - 3) {
             System.out.print(tablica[k - 2]);
             System.out.print(tablica[k - 1]);
             System.out.print(tablica[k]);
@@ -81,7 +82,7 @@ public class Akcja {
                 k--;
                 System.out.println();
             }
-        }
+        }*/
                     break;
 
                 case 'A':

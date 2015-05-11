@@ -526,7 +526,7 @@ public Clip music() {
         Stan.setText(wezStan());
         tab = tablicaKierunek();
 
-        for (int k = 9; k >= 0; k = k - 3) {
+     /*   for (int k = 9; k >= 0; k = k - 3) {
             System.out.print(tab[k - 2]);
             System.out.print(tab[k - 1]);
             System.out.print(tab[k]);
@@ -537,7 +537,7 @@ public Clip music() {
                 k--;
                 System.out.println();
             }
-        }
+        }*/
         for (int ii = 0; ii < 10; ii++) {
             if (tab[ii] == 0 && ii == 0) {
                 Atak.setEnabled(false);
