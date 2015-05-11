@@ -378,7 +378,7 @@ public class GUI2 extends javax.swing.JFrame {
 
     private void MusicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MusicActionPerformed
 
-        if (aa == 0) {
+        if (aa == 0 ) {
 
             Music.setText("Music Off");
             aa = 1;
@@ -485,7 +485,7 @@ public class GUI2 extends javax.swing.JFrame {
 public Clip music() {
 
         try {
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("C:\\Users\\Grzechu\\Documents\\NetBeansProjects\\DandD\\DandD\\src\\Pliki\\musiic.wav").getAbsoluteFile());
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("*\\Pliki\\musiic.wav").getAbsoluteFile());
             Clip clip = AudioSystem.getClip();
             clip.open(audioInputStream);
             return clip;

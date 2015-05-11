@@ -22,7 +22,7 @@ public class GUIStart extends javax.swing.JFrame {
 public void init(){
       setVisible(true);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
 }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -136,7 +136,7 @@ public void init(){
     }// </editor-fold>//GEN-END:initComponents
 
     private void WyjscieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WyjscieActionPerformed
-        System.exit(1);
+        System.exit(0);
     }//GEN-LAST:event_WyjscieActionPerformed
 
     private void StartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartActionPerformed
