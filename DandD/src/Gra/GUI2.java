@@ -373,6 +373,7 @@ public class GUI2 extends javax.swing.JFrame {
     private void skipturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_skipturaActionPerformed
         komenda = "S";
         podajKomende(komenda);
+        dButton();
     }//GEN-LAST:event_skipturaActionPerformed
 
     private void MusicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MusicActionPerformed
