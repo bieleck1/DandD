@@ -4,6 +4,8 @@ import Dane.Postac;
 import static Tury.Akcja.tablicaKierunek;
 import static Tury.Komenda.getPostac;
 import static Tury.Komenda.getPostacW;
+import static Tury.Komenda.koniec;
+import static Tury.Komenda.koniecg;
 import static Tury.Komenda.podajKomende;
 import static Tury.Komenda.wezStan;
 import java.awt.Point;
@@ -97,8 +99,9 @@ public class GUI2 extends javax.swing.JFrame {
         KOBRW = new javax.swing.JLabel();
         SPEEDW = new javax.swing.JLabel();
         INITW = new javax.swing.JLabel();
-        Stan = new javax.swing.JLabel();
         Help = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Stan = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -273,7 +276,7 @@ public class GUI2 extends javax.swing.JFrame {
 
         jLabel7.setText("Stan Gry:");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(20, 310, 70, 14);
+        jLabel7.setBounds(20, 320, 70, 14);
 
         PG.setText("NE");
         PG.addActionListener(new java.awt.event.ActionListener() {
@@ -325,10 +328,6 @@ public class GUI2 extends javax.swing.JFrame {
         jPanel1.add(INITW);
         INITW.setBounds(440, 280, 110, 20);
 
-        Stan.setText("jLabel8");
-        jPanel1.add(Stan);
-        Stan.setBounds(20, 330, 560, 50);
-
         Help.setText("Help");
         Help.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -337,6 +336,13 @@ public class GUI2 extends javax.swing.JFrame {
         });
         jPanel1.add(Help);
         Help.setBounds(520, 30, 70, 23);
+
+        Stan.setColumns(20);
+        Stan.setRows(5);
+        jScrollPane1.setViewportView(Stan);
+
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(10, 340, 360, 70);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 600, 405);
@@ -468,7 +474,7 @@ public class GUI2 extends javax.swing.JFrame {
     private javax.swing.JButton Prawo;
     private javax.swing.JLabel SPEED;
     private javax.swing.JLabel SPEEDW;
-    private javax.swing.JLabel Stan;
+    private javax.swing.JTextArea Stan;
     private javax.swing.JLabel Szybkość;
     private javax.swing.JLabel Wróg;
     private javax.swing.JLabel jLabel1;
@@ -479,6 +485,7 @@ public class GUI2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel kObr;
     private javax.swing.JLabel mapa;
     private javax.swing.JButton skiptura;
@@ -527,6 +534,14 @@ public Clip music() {
             Thread.currentThread().interrupt();
         }
         Stan.setText(wezStan());
+        Postac Bo = getPostacW();
+        if(Bo.ilePW()<=0){
+            dispose();
+            koniec(1);
+            if (koniecg() == 1) {
+            Koniec koniec = new Koniec();
+        }
+        }
         tab = tablicaKierunek();
 
         for (int ii = 0; ii < 10; ii++) {

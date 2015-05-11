@@ -1,22 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Tury;
 
 import Dane.Postac;
-import static Tury.Akcja.tablica;
-import static Tury.Akcja.tablicaKierunek;
 
-/**
- *
- * @author Rafał
- */
 public class Komenda {
     static String komenda = "N";
     static String Stan = "";
-    
+    static int j;
     public static void podajStan(String stan){
         Stan = stan;
     }
@@ -49,5 +39,10 @@ public class Komenda {
     public synchronized static void podajStatyW(Postac HeroW){
         C = HeroW;
     }
-  
+  public  static void koniec(int i){
+       j=i;
+  }
+  public  static int koniecg(){
+      return j;
+  }
 }
