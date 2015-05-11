@@ -114,7 +114,7 @@ public class GUI2 extends javax.swing.JFrame {
         jPanel1.add(Music);
         Music.setBounds(500, 0, 100, 23);
 
-        Enemy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pliki/gracz.png"))); // NOI18N
+        Enemy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pliki/wrog.png"))); // NOI18N
         Enemy.setText("jLabel8");
         jPanel1.add(Enemy);
         Enemy.setBounds(300, 150, 50, 50);
