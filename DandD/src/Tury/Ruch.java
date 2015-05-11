@@ -56,7 +56,10 @@ public class Ruch {
                     postaci.tablica.get(czyjRuch).ruchPom -= mapa.kosztRuchu(kierunek) + 1;
                     koszt += mapa.kosztRuchu(kierunek) + 1;
                 }
-                else System.out.println("Pole niedostępne");
+                else {
+                    //System.out.println("Pole niedostępne");
+                    return;
+                }
             else System.out.println("Brak wystarczającej liczby punktów ruchu");
         
         podajStan("Koszt ruchu - " + koszt);
@@ -64,14 +67,8 @@ public class Ruch {
 
     public static boolean RuchSprawdz (Bohaterowie postaci, Mapa mapa, int czyjRuch, int kierunek)
     {
-        //Komunikaty są testowe (chyba, że dziennik będzie wyświetlany)
-        
-        if (kierunek == -3 || kierunek == -1)
-           return false;
-        
-        if (kierunek == -2)
+        if (kierunek < 0)
             return false;
-        
         
         //Ruch po prostej
         if (kierunek == mapa.znajdzBohatera(czyjRuch+1) + mapa.wymiarX()

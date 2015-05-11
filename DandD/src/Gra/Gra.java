@@ -48,7 +48,7 @@ public class Gra {
         //System.out.println(postaci);      
         //System.out.println(tury);
         //TEST - zmienne
-        int ogranicznikTest = 0;
+        //int ogranicznikTest = 0;
 
         while (postaci.liczbaPostaciGraczy() != 0) {
             if (postaci.tablica.get(tury.lista.get(tury.obecna()).kto - 1).zywy) {

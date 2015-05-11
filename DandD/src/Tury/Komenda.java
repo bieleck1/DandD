@@ -5,7 +5,7 @@ import Dane.Postac;
 
 public class Komenda {
     static String komenda = "N";
-    static String Stan = "";
+    static String Stan = "Witaj Bohaterze!";
     static int j;
     public static void podajStan(String stan){
         Stan =Stan + "\n"+ stan;

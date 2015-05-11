@@ -117,22 +117,22 @@ public class GUI2 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(Music);
-        Music.setBounds(500, 0, 100, 23);
+        Music.setBounds(500, 0, 100, 25);
 
         Enemy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pliki/wrog.png"))); // NOI18N
         Enemy.setText("jLabel8");
         jPanel1.add(Enemy);
-        Enemy.setBounds(300, 150, 50, 50);
+        Enemy.setBounds(302, 152, 47, 47);
 
         Gracz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pliki/gracz.png"))); // NOI18N
         Gracz.setText("jLabel1");
         jPanel1.add(Gracz);
-        Gracz.setBounds(0, 0, 50, 50);
+        Gracz.setBounds(1, 1, 47, 47);
 
         mapa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pliki/Mapa.png"))); // NOI18N
         mapa.setText("jLabel1");
         jPanel1.add(mapa);
-        mapa.setBounds(0, 0, 352, 200);
+        mapa.setBounds(0, 0, 350, 200);
 
         Góra.setText("N");
         Góra.addActionListener(new java.awt.event.ActionListener() {
@@ -141,7 +141,7 @@ public class GUI2 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(Góra);
-        Góra.setBounds(90, 220, 70, 23);
+        Góra.setBounds(90, 220, 70, 25);
 
         Lewo.setText("W");
         Lewo.addActionListener(new java.awt.event.ActionListener() {
@@ -150,11 +150,11 @@ public class GUI2 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(Lewo);
-        Lewo.setBounds(0, 250, 70, 23);
+        Lewo.setBounds(0, 250, 70, 25);
 
-        NaSiebie.setText("NaSiebie");
+        NaSiebie.setText("Na siebie");
         jPanel1.add(NaSiebie);
-        NaSiebie.setBounds(80, 250, 90, 23);
+        NaSiebie.setBounds(80, 250, 90, 25);
 
         Prawo.setText("E");
         Prawo.addActionListener(new java.awt.event.ActionListener() {
@@ -163,7 +163,7 @@ public class GUI2 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(Prawo);
-        Prawo.setBounds(180, 250, 70, 23);
+        Prawo.setBounds(180, 250, 70, 25);
 
         Dół.setText("S");
         Dół.addActionListener(new java.awt.event.ActionListener() {
@@ -172,7 +172,7 @@ public class GUI2 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(Dół);
-        Dół.setBounds(90, 280, 70, 23);
+        Dół.setBounds(90, 280, 70, 25);
 
         Atak.setText("ATAK");
         Atak.addActionListener(new java.awt.event.ActionListener() {
@@ -181,7 +181,7 @@ public class GUI2 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(Atak);
-        Atak.setBounds(280, 220, 80, 23);
+        Atak.setBounds(280, 220, 80, 25);
 
         Bohater.setText("Bohater:");
         jPanel1.add(Bohater);
@@ -193,92 +193,92 @@ public class GUI2 extends javax.swing.JFrame {
 
         PW.setText("PW:");
         jPanel1.add(PW);
-        PW.setBounds(370, 30, 50, 14);
+        PW.setBounds(370, 30, 50, 16);
 
         KP.setText("KP:");
         jPanel1.add(KP);
-        KP.setBounds(370, 50, 50, 14);
+        KP.setBounds(370, 50, 50, 16);
 
         BA.setText("BA:");
         jPanel1.add(BA);
-        BA.setBounds(370, 70, 60, 14);
+        BA.setBounds(370, 70, 60, 16);
 
         kObr.setText("kObr:");
         jPanel1.add(kObr);
-        kObr.setBounds(370, 90, 60, 14);
+        kObr.setBounds(370, 90, 60, 16);
 
         Szybkość.setText("Szybkość:");
         jPanel1.add(Szybkość);
-        Szybkość.setBounds(370, 110, 60, 14);
+        Szybkość.setBounds(370, 110, 60, 16);
 
         Ini.setText("Ini:");
         jPanel1.add(Ini);
-        Ini.setBounds(370, 130, 60, 14);
+        Ini.setBounds(370, 130, 60, 16);
 
         Życie.setText("jLabel2");
         jPanel1.add(Życie);
-        Życie.setBounds(440, 30, 50, 14);
+        Życie.setBounds(440, 30, 50, 16);
 
         KlasaPancerza.setText("jLabel3");
         jPanel1.add(KlasaPancerza);
-        KlasaPancerza.setBounds(440, 50, 50, 14);
+        KlasaPancerza.setBounds(440, 50, 50, 16);
 
         BazowyAtak.setText("jLabel4");
         jPanel1.add(BazowyAtak);
-        BazowyAtak.setBounds(440, 70, 50, 14);
+        BazowyAtak.setBounds(440, 70, 50, 16);
 
         KOBR.setText("jLabel5");
         jPanel1.add(KOBR);
-        KOBR.setBounds(440, 90, 50, 14);
+        KOBR.setBounds(440, 90, 50, 16);
 
         SPEED.setText("jLabel6");
         jPanel1.add(SPEED);
-        SPEED.setBounds(440, 110, 60, 14);
+        SPEED.setBounds(440, 110, 60, 16);
 
         INIT.setText("jLabel7");
         jPanel1.add(INIT);
-        INIT.setBounds(440, 130, 50, 14);
+        INIT.setBounds(440, 130, 50, 16);
 
         Wróg.setText("Wróg:");
         jPanel1.add(Wróg);
-        Wróg.setBounds(370, 160, 60, 14);
+        Wróg.setBounds(370, 160, 60, 16);
 
         jLabel1.setText("PW:");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(370, 180, 50, 14);
+        jLabel1.setBounds(370, 180, 50, 16);
 
         jLabel2.setText("KP:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(370, 200, 50, 14);
+        jLabel2.setBounds(370, 200, 50, 16);
 
         jLabel3.setText("BA:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(370, 220, 40, 14);
+        jLabel3.setBounds(370, 220, 40, 16);
 
         jLabel4.setText("kObr:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(370, 240, 50, 14);
+        jLabel4.setBounds(370, 240, 50, 16);
 
-        skiptura.setText("SKIP");
+        skiptura.setText("CZEKAJ");
         skiptura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 skipturaActionPerformed(evt);
             }
         });
         jPanel1.add(skiptura);
-        skiptura.setBounds(270, 250, 90, 23);
+        skiptura.setBounds(280, 250, 80, 25);
 
         jLabel5.setText("Szybkość:");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(370, 260, 60, 14);
+        jLabel5.setBounds(370, 260, 60, 16);
 
         jLabel6.setText("Ini:");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(370, 280, 40, 14);
+        jLabel6.setBounds(370, 280, 40, 16);
 
         jLabel7.setText("Stan Gry:");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(20, 320, 70, 14);
+        jLabel7.setBounds(20, 320, 70, 16);
 
         PG.setText("NE");
         PG.addActionListener(new java.awt.event.ActionListener() {
@@ -287,7 +287,7 @@ public class GUI2 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(PG);
-        PG.setBounds(173, 220, 80, 23);
+        PG.setBounds(173, 220, 80, 25);
 
         LG.setText("NW");
         LG.addActionListener(new java.awt.event.ActionListener() {
@@ -296,7 +296,7 @@ public class GUI2 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(LG);
-        LG.setBounds(0, 220, 80, 23);
+        LG.setBounds(0, 220, 80, 25);
 
         LD.setText("SW");
         LD.addActionListener(new java.awt.event.ActionListener() {
@@ -305,7 +305,7 @@ public class GUI2 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(LD);
-        LD.setBounds(0, 280, 80, 23);
+        LD.setBounds(0, 280, 80, 25);
 
         PD.setText("SE");
         PD.addActionListener(new java.awt.event.ActionListener() {
@@ -314,7 +314,7 @@ public class GUI2 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(PD);
-        PD.setBounds(170, 280, 80, 23);
+        PD.setBounds(170, 280, 80, 25);
         jPanel1.add(ImieW);
         ImieW.setBounds(440, 160, 90, 20);
         jPanel1.add(ŻycieW);
@@ -337,7 +337,7 @@ public class GUI2 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(Help);
-        Help.setBounds(500, 30, 100, 23);
+        Help.setBounds(500, 30, 100, 25);
 
         Stan.setColumns(20);
         Stan.setForeground(new java.awt.Color(255, 0, 0));
@@ -347,7 +347,7 @@ public class GUI2 extends javax.swing.JFrame {
         jScrollPane1.setViewportView(Stan);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 340, 360, 70);
+        jScrollPane1.setBounds(10, 340, 360, 80);
 
         jButton1.setText("Zasady Gry");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -356,10 +356,10 @@ public class GUI2 extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(500, 60, 100, 23);
+        jButton1.setBounds(500, 60, 100, 25);
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 600, 405);
+        jPanel1.setBounds(0, 0, 600, 420);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -540,8 +540,8 @@ public class GUI2 extends javax.swing.JFrame {
         aktualizujBohatera(getPostac());
         aktualizujWroga(getPostacW());
         a = Gracz.getLocation();
-        nowax = a.x + i * Gracz.getWidth();
-        noway = a.y + j * Gracz.getHeight();
+        nowax = a.x + i * 50;
+        noway = a.y + j * 50;
         Gracz.setLocation(nowax, noway);
         
     }
@@ -638,6 +638,17 @@ public class GUI2 extends javax.swing.JFrame {
         KOBR.setText(Integer.toString(B.ileKObrazen()));
         SPEED.setText(Integer.toString(B.ruchPom));
         INIT.setText(Integer.toString(B.ileInicjatywy()));
+        Postac Bo = getPostac();
+        if (!Bo.zywy) {
+            Gracz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pliki/martwy.png")));
+            skiptura.setEnabled(false);
+            // stop(clip);
+            Music.setEnabled(false);
+            koniec(0);
+            if (koniecg() == 0) {
+                Koniec koniec = new Koniec();
+            }
+        }
         
     }
     
@@ -651,6 +662,7 @@ public class GUI2 extends javax.swing.JFrame {
         INITW.setText(Integer.toString(C.ileInicjatywy()));
         Postac Bo = getPostacW();
         if (!Bo.zywy) {
+            Enemy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pliki/martwy.png")));
             skiptura.setEnabled(false);
             // stop(clip);
             Music.setEnabled(false);

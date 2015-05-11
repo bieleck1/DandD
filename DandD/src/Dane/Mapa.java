@@ -11,22 +11,19 @@ import java.util.ArrayList;
  *
  * @author Grzechu
  */
-public class Mapa
-{
+public class Mapa {
 
     public ArrayList<Pole> plansza;
     private int wymiarX;
     private int wymiarY;
 
-    public Mapa()
-    {
+    public Mapa() {
         plansza = new ArrayList<>();
 
     }
 
-    public void MapaWczytaj(String dane)
-    {
-        
+    public void MapaWczytaj(String dane) {
+
         int dlugosc = dane.length();
         String wyraz = dane.substring(0, dane.indexOf(';'));
         this.wymiarY = Integer.parseInt(wyraz);
@@ -52,7 +49,7 @@ public class Mapa
                 i -= this.wymiarY;
                 j++;
             }
-            
+
             String pom2;
             pom2 = dane.substring(dane.indexOf(';') + 1);
             dane = pom2;
@@ -61,27 +58,20 @@ public class Mapa
         }
     }
 
-    public void RozmiescBohaterow(Bohaterowie b)
-    {
+    public void RozmiescBohaterow(Bohaterowie b) {
         int liczbaRozmieszczonych = 0;
 
-        while (liczbaRozmieszczonych != b.iloscPostaci)
-        {
-            if (b.tablica.get(liczbaRozmieszczonych).podajGracza() != 0)
-            {
+        while (liczbaRozmieszczonych != b.iloscPostaci) {
+            if (b.tablica.get(liczbaRozmieszczonych).podajGracza() != 0) {
                 for (Pole plansza1 : this.plansza) {
                     if (plansza1.ktoZajmuje == 0 && plansza1.czyDostepne() == true) {
                         plansza1.ktoZajmuje = b.tablica.get(liczbaRozmieszczonych).jakiNumer();
                         break;
                     }
-                }    
-            }
-            else
-            {
-                for (int j = this.plansza.size()-1; j >= 0; j--)
-                {
-                    if (this.plansza.get(j).ktoZajmuje == 0 && this.plansza.get(j).czyDostepne() == true)
-                    {    
+                }
+            } else {
+                for (int j = this.plansza.size() - 1; j >= 0; j--) {
+                    if (this.plansza.get(j).ktoZajmuje == 0 && this.plansza.get(j).czyDostepne() == true) {
                         this.plansza.get(j).ktoZajmuje = b.tablica.get(liczbaRozmieszczonych).jakiNumer();
                         break;
                     }
@@ -90,91 +80,87 @@ public class Mapa
             liczbaRozmieszczonych++;
         }
     }
-    
+
     @Override
-    public String toString ()
-    {
+    public String toString() {
         StringBuilder wydruk = new StringBuilder();
-        int i=0, j=0, pole=0;
-        while ( i < this.wymiarY )
-        {
-            while (j < this.wymiarX)
-            {
+        int i = 0, j = 0, pole = 0;
+        while (i < this.wymiarY) {
+            while (j < this.wymiarX) {
                 wydruk.append(this.plansza.get(pole).typTerenu());
                 j++;
                 pole++;
             }
             i++;
-            j=0;
+            j = 0;
             wydruk.append("\n");
         }
-        
-        for (i = 0; i < this.plansza.size(); i++)
-        {
-            if (this.plansza.get(i).ktoZajmuje != 0)
+
+        for (i = 0; i < this.plansza.size(); i++) {
+            if (this.plansza.get(i).ktoZajmuje != 0) {
                 wydruk.append(this.plansza.get(i).ktoZajmuje).append(" na polu ").append(i).append("\n");
+            }
         }
-        
+
         return wydruk.toString();
     }
-    
-    public String druk ()
-    {
+
+    public String druk() {
         StringBuilder wydruk = new StringBuilder();
-        int i=0, j=0, pole=0;
-        while ( i < this.wymiarY )
-        {
-            while (j < this.wymiarX)
-            {
-                if (this.plansza.get(pole).typTerenu() == 1)
+        int i = 0, j = 0, pole = 0;
+        while (i < this.wymiarY) {
+            while (j < this.wymiarX) {
+                if (this.plansza.get(pole).typTerenu() == 1) {
                     wydruk.append("X");
-                else if (this.plansza.get(pole).typTerenu() == 2 && this.plansza.get(pole).czyDostepne())
+                } else if (this.plansza.get(pole).typTerenu() == 2 && this.plansza.get(pole).czyDostepne()) {
                     wydruk.append("#");
-                else if (this.plansza.get(pole).typTerenu() == 3 && this.plansza.get(pole).czyDostepne())
+                } else if (this.plansza.get(pole).typTerenu() == 3 && this.plansza.get(pole).czyDostepne()) {
                     wydruk.append("$");
-                else wydruk.append(this.plansza.get(pole).ktoZajmuje);
-               
+                } else {
+                    wydruk.append(this.plansza.get(pole).ktoZajmuje);
+                }
+
                 j++;
                 pole++;
             }
             i++;
-            j=0;
+            j = 0;
             wydruk.append("\n");
-        }    
+        }
         return wydruk.toString();
     }
-    
-    public int znajdzBohatera (int numer)
-    {
+
+    public int znajdzBohatera(int numer) {
         int gdzie = 0;
-        
-        while (this.plansza.get(gdzie).ktoZajmuje != numer)
+
+        while (this.plansza.get(gdzie).ktoZajmuje != numer) {
             gdzie++;
-        
-        if (this.plansza.get(gdzie).ktoZajmuje == numer)
+        }
+
+        if (this.plansza.get(gdzie).ktoZajmuje == numer) {
             return gdzie;
-        else return -1;
+        } else {
+            return -1;
+        }
     }
-    
-    public int wymiarX ()
-    {
+
+    public int wymiarX() {
         return this.wymiarX;
     }
-    
-    public int wymiarY ()
-    {
+
+    public int wymiarY() {
         return this.wymiarY;
     }
-    
-    public int kosztRuchu (int dokad)
-    {
-        if (this.plansza.get(dokad).czyTrudny())
+
+    public int kosztRuchu(int dokad) {
+        if (this.plansza.get(dokad).czyTrudny()) {
             return 2;
-        else return 1;
+        } else {
+            return 1;
+        }
     }
-    
-    public void przemiesc (int kogo, int dokad)
-    {
+
+    public void przemiesc(int kogo, int dokad) {
         this.plansza.get(znajdzBohatera(kogo)).ktoZajmuje = 0;
         this.plansza.get(dokad).ktoZajmuje = kogo;
     }

@@ -71,8 +71,8 @@ public class Atak {
         if (obrazenia != 0)
         {
             if (obrazenia > (postaci.tablica.get(czyjRuch).ileKObrazen() + postaci.tablica.get(czyjRuch).ilePremiaObrazen()))
-                komunikat = ("Atak krytyczny - zadano " + obrazenia + " punktów obrażeń\n");
-            else komunikat = ("Zadano " + obrazenia + " punktów obrażeń ( " + BA + " + " + (testAtaku - BA) + " >= " + KP + " )\n");
+                komunikat = ("Atak krytyczny - zadano " + obrazenia + " punktów obrażeń");
+            else komunikat = ("Zadano " + obrazenia + " punktów obrażeń ( " + BA + " + " + (testAtaku - BA) + " >= " + KP + " )");
         }    
         else komunikat = ("Atak zakończony niepowodzeniem ( " + BA + " + " + (testAtaku - BA) + " < " + KP + " )");
         postaci.tablica.get(czyjRuch).lAtakPom--;
@@ -82,7 +82,7 @@ public class Atak {
         {
             postaci.smierc(kogo);
             mapa.plansza.get(kierunek).zwloki();
-            //komunikat += "\nGracz " + postaci.tablica.get(kogo).nazwaPostaci() + " zginął.";
+            komunikat += "\nGracz " + postaci.tablica.get(kogo).nazwaPostaci().substring(3) + " zginął.";
         }
         podajStan(komunikat);
     }

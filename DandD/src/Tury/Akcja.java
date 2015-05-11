@@ -8,7 +8,6 @@ package Tury;
 import Dane.Bohaterowie;
 import Dane.Mapa;
 import Dane.Postac;
-import Gra.GUI2;
 import Gra.GUIStart;
 import static Tury.Atak.Atak;
 import static Tury.Czar.Czar;
@@ -25,13 +24,14 @@ import java.util.Scanner;
  * @author Grzechu
  */
 public class Akcja {
+
     static int[] tablica = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     static Postac bohater;
     static boolean x = true;
-    
+
     public static void akcjaGracza(Bohaterowie postaci, Mapa mapa, int czyjRuch) {
-        podajStan("Tura Gracza");
-        
+        podajStan("\nTura Gracza:");
+
         bohater = postaci.tablica.get(czyjRuch + 1);
         podajStaty(bohater);
         bohater = postaci.tablica.get(czyjRuch);
@@ -43,30 +43,27 @@ public class Akcja {
             gui2 = new GUIStart();
         }
         x = false;
+
         while (koniec) {
-///////////////////ROZWIĄZANIE CHWILOWE, TE INFORMACJE POWINNY PRZYCISKI DAWAĆ, A NIE KLAWIATURA\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-            int kierunek = -2;   
+            int kierunek = -2;
             String klawiatura = getKomenda();
             Scanner odczyt = new Scanner(System.in);
             char akcja = klawiatura.charAt(0);
-                       //PRZYJĄŁEM KIERUNKI TAK JAK SĄ NA NUMERYCZNEJ
+            //PRZYJĄŁEM KIERUNKI TAK JAK SĄ NA NUMERYCZNEJ
             if (klawiatura.length() != 1) {
                 if (Character.isDigit(klawiatura.charAt(1))) {
                     kierunek = klawiatura.charAt(1) - 48;
                     kierunek = ustalKierunek(mapa, czyjRuch, kierunek);
                 }
             }
-///////////////////ROZWIĄZANIE CHWILOWE, TE INFORMACJE POWINNY PRZYCISKI DAWAĆ, A NIE KLAWIATURA\\\\\\\\\\\\\\\\\\\\\\\\\\\\
             uzupelnijTablice(tablica, postaci, mapa, czyjRuch);
-            
 
             bohater = postaci.tablica.get(czyjRuch + 1);
             podajStaty(bohater);
-            
+
             bohater = postaci.tablica.get(czyjRuch);
             podajStatyW(bohater);
-            
-            
+
             switch (akcja) {
                 case 'R':
                     Ruch(postaci, mapa, czyjRuch, kierunek);
@@ -74,12 +71,12 @@ public class Akcja {
                     break;
 
                 case 'A':
-                    if (postaci.tablica.get(czyjRuch).lAtakPom > 0)
-                    {
+                    if (postaci.tablica.get(czyjRuch).lAtakPom > 0) {
                         kierunek = mapa.znajdzBohatera(2);
                         Atak(postaci, mapa, czyjRuch, kierunek);
-                    } else {
-                        podajStan("Wykorzystano limit ataków");
+                    }
+                    if (postaci.tablica.get(czyjRuch).lAtakPom == 0) {
+                        tablica[0] = 0;
                     }
                     break;
 
@@ -89,7 +86,6 @@ public class Akcja {
 
                 case 'S':
                     koniec = false;
-                    podajStan("Tura przeciwnika");
                     break;
 
                 case 'M':
@@ -99,10 +95,10 @@ public class Akcja {
                 case 'N':
                     break;
             }
-            if (!postaci.tablica.get(0).zywy || !postaci.tablica.get(1).zywy)
-            {
-                for (int i=0; i < 10; i++)
+            if (!postaci.tablica.get(0).zywy || !postaci.tablica.get(1).zywy) {
+                for (int i = 0; i < 10; i++) {
                     tablica[i] = 0;
+                }
                 break;
             }
         }
@@ -111,6 +107,7 @@ public class Akcja {
     }
 
     public static void akcjaKomputera(Bohaterowie postaci, Mapa mapa, int czyjRuch) {
+        podajStan("\nTura Komputera");
     }
 
     private static int ustalKierunek(Mapa mapa, int czyjRuch, int kierunek) {
@@ -205,22 +202,24 @@ public class Akcja {
         return tablica;
     }
 
-    private synchronized static void uzupelnijTablice(int[] tablica, Bohaterowie postaci, Mapa mapa, int czyjRuch)
-    {
-        tablica[0] = 0;
+    private synchronized static void uzupelnijTablice(int[] tablica, Bohaterowie postaci, Mapa mapa, int czyjRuch) {
         int kierunek;
-        for (int i = 1; i < 10; i++)
-        {
+        for (int i = 1; i < 10; i++) {
+            tablica[i] = 0;
             kierunek = ustalKierunek(mapa, czyjRuch, i);
-            if(RuchSprawdz(postaci, mapa, czyjRuch, kierunek))
+            if (RuchSprawdz(postaci, mapa, czyjRuch, kierunek)) {
                 tablica[i] = 1;
-            else tablica[i] = 0;
-            
-            if (kierunek > 0)
-                if (mapa.plansza.get(kierunek).ktoZajmuje > 1 && postaci.tablica.get(czyjRuch).lAtakPom > 0)
+            } else {
+                tablica[i] = 0;
+            }
+
+            if (kierunek > 0) {
+                if (mapa.plansza.get(kierunek).ktoZajmuje > 1 && postaci.tablica.get(czyjRuch).lAtakPom > 0) {
                     tablica[0] = 1;
+                }
+            }
         }
-        tablica[5] = 1;
+        tablica[5] = 0;
     }
 
 }
