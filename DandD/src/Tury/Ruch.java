@@ -7,6 +7,7 @@ package Tury;
 
 import Dane.Bohaterowie;
 import Dane.Mapa;
+import static Tury.Komenda.podajStan;
 
 /**
  *
@@ -15,7 +16,7 @@ import Dane.Mapa;
 public class Ruch {
     public static void Ruch (Bohaterowie postaci, Mapa mapa, int czyjRuch, int kierunek)
     {
-        //Komunikaty są testowe (chyba, że dziennik będzie wyświetlany)
+        int koszt = 0;
         
         if (kierunek == -3 || kierunek == -1)
         {
@@ -41,6 +42,7 @@ public class Ruch {
                 {
                     mapa.przemiesc(czyjRuch+1, kierunek);
                     postaci.tablica.get(czyjRuch).ruchPom -= mapa.kosztRuchu(kierunek);
+                    koszt += mapa.kosztRuchu(kierunek);;
                 }
                 else System.out.println("Pole niedostępne");
             }
@@ -52,12 +54,12 @@ public class Ruch {
                 {
                     mapa.przemiesc(czyjRuch+1, kierunek);
                     postaci.tablica.get(czyjRuch).ruchPom -= mapa.kosztRuchu(kierunek) + 1;
+                    koszt += mapa.kosztRuchu(kierunek) + 1;
                 }
                 else System.out.println("Pole niedostępne");
             else System.out.println("Brak wystarczającej liczby punktów ruchu");
         
-        ////////////////////////ODŚWIEŻANIE GRAFIKI PO RUCHU\\\\\\\\\\\\\\\\\\\\
-        System.out.println("Ruch " + kierunek);
+        podajStan("Koszt ruchu - " + koszt);
     }
 
     public static boolean RuchSprawdz (Bohaterowie postaci, Mapa mapa, int czyjRuch, int kierunek)

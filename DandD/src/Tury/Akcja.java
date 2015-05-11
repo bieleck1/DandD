@@ -13,6 +13,7 @@ import Gra.GUIStart;
 import static Tury.Atak.Atak;
 import static Tury.Czar.Czar;
 import static Tury.Komenda.getKomenda;
+import static Tury.Komenda.podajStan;
 import static Tury.Komenda.podajStaty;
 import static Tury.Komenda.podajStatyW;
 import static Tury.Ruch.Ruch;
@@ -24,11 +25,12 @@ import java.util.Scanner;
  * @author Grzechu
  */
 public class Akcja {
-
     static int[] tablica = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     static Postac bohater;
     static boolean x = true;
+    
     public static void akcjaGracza(Bohaterowie postaci, Mapa mapa, int czyjRuch) {
+        podajStan("Tura Gracza");
         
         bohater = postaci.tablica.get(czyjRuch + 1);
         podajStaty(bohater);
@@ -67,22 +69,8 @@ public class Akcja {
             
             switch (akcja) {
                 case 'R':
-                    
-                    
                     Ruch(postaci, mapa, czyjRuch, kierunek);
                     uzupelnijTablice(tablica, postaci, mapa, czyjRuch);
-                /*   for (int k = 9; k >= 0; k = k - 3) {
-            System.out.print(tablica[k - 2]);
-            System.out.print(tablica[k - 1]);
-            System.out.print(tablica[k]);
-            System.out.println();
-
-            if (k == 3) {
-                System.out.print(tablica[0]);
-                k--;
-                System.out.println();
-            }
-        }*/
                     break;
 
                 case 'A':
@@ -91,7 +79,7 @@ public class Akcja {
                         kierunek = mapa.znajdzBohatera(2);
                         Atak(postaci, mapa, czyjRuch, kierunek);
                     } else {
-                        System.out.println("Wykorzystano limit ataków");
+                        podajStan("Wykorzystano limit ataków");
                     }
                     break;
 
@@ -101,6 +89,7 @@ public class Akcja {
 
                 case 'S':
                     koniec = false;
+                    podajStan("Tura przeciwnika");
                     break;
 
                 case 'M':
@@ -110,13 +99,18 @@ public class Akcja {
                 case 'N':
                     break;
             }
+            if (!postaci.tablica.get(0).zywy || !postaci.tablica.get(1).zywy)
+            {
+                for (int i=0; i < 10; i++)
+                    tablica[i] = 0;
+                break;
+            }
         }
         //TEST
-        System.out.print("Gracz    |");
+        //System.out.print("Gracz    |");
     }
 
     public static void akcjaKomputera(Bohaterowie postaci, Mapa mapa, int czyjRuch) {
-        System.out.print("Komputer |");
     }
 
     private static int ustalKierunek(Mapa mapa, int czyjRuch, int kierunek) {
@@ -213,8 +207,7 @@ public class Akcja {
 
     private synchronized static void uzupelnijTablice(int[] tablica, Bohaterowie postaci, Mapa mapa, int czyjRuch)
     {
-        
-        
+        tablica[0] = 0;
         int kierunek;
         for (int i = 1; i < 10; i++)
         {
@@ -224,11 +217,8 @@ public class Akcja {
             else tablica[i] = 0;
             
             if (kierunek > 0)
-                if (mapa.plansza.get(kierunek).ktoZajmuje > 1)
+                if (mapa.plansza.get(kierunek).ktoZajmuje > 1 && postaci.tablica.get(czyjRuch).lAtakPom > 0)
                     tablica[0] = 1;
-                
-           
-            
         }
         tablica[5] = 1;
     }

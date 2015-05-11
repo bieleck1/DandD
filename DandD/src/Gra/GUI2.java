@@ -374,6 +374,8 @@ public class GUI2 extends javax.swing.JFrame {
         komenda = "S";
         podajKomende(komenda);
         dButton();
+        aktualizujBohatera(getPostac());
+        aktualizujWroga(getPostacW());
     }//GEN-LAST:event_skipturaActionPerformed
 
     private void MusicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MusicActionPerformed
@@ -430,6 +432,7 @@ public class GUI2 extends javax.swing.JFrame {
         }
         aktualizujBohatera(getPostac());
         aktualizujWroga(getPostacW());
+        dButton();
     }//GEN-LAST:event_AtakActionPerformed
 
 
@@ -526,18 +529,6 @@ public Clip music() {
         Stan.setText(wezStan());
         tab = tablicaKierunek();
 
-     /*   for (int k = 9; k >= 0; k = k - 3) {
-            System.out.print(tab[k - 2]);
-            System.out.print(tab[k - 1]);
-            System.out.print(tab[k]);
-            System.out.println();
-
-            if (k == 3) {
-                System.out.print(tab[0]);
-                k--;
-                System.out.println();
-            }
-        }*/
         for (int ii = 0; ii < 10; ii++) {
             if (tab[ii] == 0 && ii == 0) {
                 Atak.setEnabled(false);
@@ -618,7 +609,7 @@ public Clip music() {
         KlasaPancerza.setText(Integer.toString(B.ileKP()));
         BazowyAtak.setText(Integer.toString(B.ileAtak()));
         KOBR.setText(Integer.toString(B.ileKObrazen()));
-        SPEED.setText(Integer.toString(B.ileRuchu()));
+        SPEED.setText(Integer.toString(B.ruchPom));
         INIT.setText(Integer.toString(B.ileInicjatywy()));
 
     }

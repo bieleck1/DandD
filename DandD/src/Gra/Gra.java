@@ -47,9 +47,9 @@ public class Gra {
         
         
         //TEST
-        System.out.println(siatka);
-        System.out.println(postaci);      
-        System.out.println(tury);
+        //System.out.println(siatka);
+        //System.out.println(postaci);      
+        //System.out.println(tury);
         
         //TEST - zmienne
         int ogranicznikTest = 0;
@@ -66,13 +66,13 @@ public class Gra {
 
             } 
             //TEST
-            System.out.println(ogranicznikTest + "   " + tury.lista.get(tury.obecna()).kto);
-            ogranicznikTest++;
+            //System.out.println(ogranicznikTest + "   " + tury.lista.get(tury.obecna()).kto);
+            //ogranicznikTest++;
             //if (ogranicznikTest == 16)
             //   break;
             
             tury.nastepna();
         }
-        System.out.println("\nKONIEC GRY");
+        //System.out.println("\nKONIEC GRY");
     }
 }
