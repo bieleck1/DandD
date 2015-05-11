@@ -13,6 +13,7 @@ public class Koniec extends javax.swing.JFrame {
 
     public  void init() {
         setVisible(true);
+        setResizable(false);
         setLocationRelativeTo(null);
         Postac B = getPostac();
         setDefaultCloseOperation(EXIT_ON_CLOSE);

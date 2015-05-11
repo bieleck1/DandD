@@ -21,6 +21,7 @@ public class Help extends javax.swing.JFrame {
     }
     public void init(){
         setVisible(true);
+        setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }

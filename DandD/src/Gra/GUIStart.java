@@ -1,21 +1,20 @@
-
 package Gra;
 
-
 public class GUIStart extends javax.swing.JFrame {
-
 
     public GUIStart() {
         initComponents();
         init();
-                
+
     }
-public void init(){
-      setVisible(true);
+
+    public void init() {
+        setVisible(true);
+        setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-}
-  
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -102,7 +101,7 @@ public void init(){
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pliki/dungeons_dragons-2.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(0, 0, 620, 470);
+        jLabel1.setBounds(0, 0, 690, 470);
 
         jLabel8.setText("jLabel8");
         jPanel1.add(jLabel8);
@@ -112,7 +111,7 @@ public void init(){
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 629, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,7 +134,6 @@ public void init(){
         ZasadyGry zasady = new ZasadyGry();
     }//GEN-LAST:event_ZasadyActionPerformed
 
-  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Start;

@@ -18,7 +18,7 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class GUI2 extends javax.swing.JFrame {
-
+    
     int[] tab;
     static String komenda;
     public int aa = 0;
@@ -27,17 +27,18 @@ public class GUI2 extends javax.swing.JFrame {
     Point a = new Point();
     public int i, j;
     public int nowax, noway, nowax2, noway2;
-
+    static Clip clip;
+    
     public GUI2() {
         initComponents();
         init();
     }
-
+    
     public void init() {
         setSize(640, 480);
         setVisible(true);
         setLocationRelativeTo(null);
-        //  dButton();
+        setResizable(false);
         Góra.setEnabled(false);
         Lewo.setEnabled(false);
         Atak.setEnabled(false);
@@ -49,7 +50,7 @@ public class GUI2 extends javax.swing.JFrame {
         aktualizujWroga(getPostacW());
         Stan.setText("Witaj Bohaterze!");
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -102,6 +103,7 @@ public class GUI2 extends javax.swing.JFrame {
         Help = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         Stan = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -328,21 +330,33 @@ public class GUI2 extends javax.swing.JFrame {
         jPanel1.add(INITW);
         INITW.setBounds(440, 280, 110, 20);
 
-        Help.setText("Help");
+        Help.setText("Oznaczenia");
         Help.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HelpActionPerformed(evt);
             }
         });
         jPanel1.add(Help);
-        Help.setBounds(520, 30, 70, 23);
+        Help.setBounds(500, 30, 100, 23);
 
         Stan.setColumns(20);
+        Stan.setForeground(new java.awt.Color(255, 0, 0));
         Stan.setRows(5);
+        Stan.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        Stan.setEnabled(false);
         jScrollPane1.setViewportView(Stan);
 
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(10, 340, 360, 70);
+
+        jButton1.setText("Zasady Gry");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(500, 60, 100, 23);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 600, 405);
@@ -385,9 +399,9 @@ public class GUI2 extends javax.swing.JFrame {
     }//GEN-LAST:event_skipturaActionPerformed
 
     private void MusicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MusicActionPerformed
-
-        if (aa == 0 ) {
-
+        
+        if (aa == 0) {
+            
             Music.setText("Music Off");
             aa = 1;
             start(clip2);
@@ -395,7 +409,7 @@ public class GUI2 extends javax.swing.JFrame {
             Music.setText("Music On");
             aa = 0;
             stop(clip2);
-
+            
         }
     }//GEN-LAST:event_MusicActionPerformed
 
@@ -431,7 +445,7 @@ public class GUI2 extends javax.swing.JFrame {
     private void AtakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtakActionPerformed
         komenda = "A";
         podajKomende(komenda);
-         try {
+        try {
             Thread.sleep(100);
         } catch (InterruptedException ex) {
             Thread.currentThread().interrupt();
@@ -440,6 +454,10 @@ public class GUI2 extends javax.swing.JFrame {
         aktualizujWroga(getPostacW());
         dButton();
     }//GEN-LAST:event_AtakActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ZasadyGry zasady = new ZasadyGry();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -477,6 +495,7 @@ public class GUI2 extends javax.swing.JFrame {
     private javax.swing.JTextArea Stan;
     private javax.swing.JLabel Szybkość;
     private javax.swing.JLabel Wróg;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -492,29 +511,30 @@ public class GUI2 extends javax.swing.JFrame {
     private javax.swing.JLabel Życie;
     private javax.swing.JLabel ŻycieW;
     // End of variables declaration//GEN-END:variables
-public Clip music() {
 
+    public Clip music() {
+        
         try {
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("*\\Pliki\\musiic.wav").getAbsoluteFile());
-            Clip clip = AudioSystem.getClip();
+            clip = AudioSystem.getClip();
             clip.open(audioInputStream);
             return clip;
-
+            
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
             System.out.println("Error with playing sound.");
             return null;
         }
-
+        
     }
-
+    
     public void start(Clip clip) {
         clip.start();
     }
-
+    
     public void stop(Clip clip) {
         clip.stop();
     }
-
+    
     public void poruszaj(int i, int j) {
         dButton();
         aktualizujBohatera(getPostac());
@@ -523,10 +543,9 @@ public Clip music() {
         nowax = a.x + i * Gracz.getWidth();
         noway = a.y + j * Gracz.getHeight();
         Gracz.setLocation(nowax, noway);
-
         
     }
-
+    
     public void dButton() {
         try {
             Thread.sleep(100);
@@ -534,16 +553,9 @@ public Clip music() {
             Thread.currentThread().interrupt();
         }
         Stan.setText(wezStan());
-        Postac Bo = getPostacW();
-        if(Bo.ilePW()<=0){
-            dispose();
-            koniec(1);
-            if (koniecg() == 1) {
-            Koniec koniec = new Koniec();
-        }
-        }
+        
         tab = tablicaKierunek();
-
+        
         for (int ii = 0; ii < 10; ii++) {
             if (tab[ii] == 0 && ii == 0) {
                 Atak.setEnabled(false);
@@ -551,21 +563,21 @@ public Clip music() {
             if (tab[ii] == 1 && ii == 0) {
                 Atak.setEnabled(true);
             }
-
+            
             if (tab[ii] == 0 && ii == 1) {
                 LD.setEnabled(false);
             }
             if (tab[ii] == 1 && ii == 1) {
                 LD.setEnabled(true);
             }
-
+            
             if (tab[ii] == 0 && ii == 2) {
                 Dół.setEnabled(false);
             }
             if (tab[ii] == 1 && ii == 2) {
                 Dół.setEnabled(true);
             }
-
+            
             if (tab[ii] == 0 && ii == 3) {
                 PD.setEnabled(false);
             }
@@ -578,46 +590,46 @@ public Clip music() {
             if (tab[ii] == 1 && ii == 4) {
                 Lewo.setEnabled(true);
             }
-
+            
             if (tab[ii] == 0 && ii == 5) {
                 NaSiebie.setEnabled(false);
             }
             if (tab[ii] == 1 && ii == 5) {
                 NaSiebie.setEnabled(true);
             }
-
+            
             if (tab[ii] == 0 && ii == 6) {
                 Prawo.setEnabled(false);
             }
             if (tab[ii] == 1 && ii == 6) {
                 Prawo.setEnabled(true);
             }
-
+            
             if (tab[ii] == 0 && ii == 7) {
                 LG.setEnabled(false);
             }
             if (tab[ii] == 1 && ii == 7) {
                 LG.setEnabled(true);
             }
-
+            
             if (tab[ii] == 0 && ii == 8) {
                 Góra.setEnabled(false);
             }
             if (tab[ii] == 1 && ii == 8) {
                 Góra.setEnabled(true);
             }
-
+            
             if (tab[ii] == 0 && ii == 9) {
                 PG.setEnabled(false);
             }
             if (tab[ii] == 1 && ii == 9) {
                 PG.setEnabled(true);
             }
-
+            
         }
-
+        
     }
-
+    
     public void aktualizujBohatera(Postac B) {
         Imie.setText(B.nazwaPostaci());
         Życie.setText(Integer.toString(B.ilePW()));
@@ -626,9 +638,9 @@ public Clip music() {
         KOBR.setText(Integer.toString(B.ileKObrazen()));
         SPEED.setText(Integer.toString(B.ruchPom));
         INIT.setText(Integer.toString(B.ileInicjatywy()));
-
+        
     }
-
+    
     public void aktualizujWroga(Postac C) {
         ImieW.setText(C.nazwaPostaci().substring(3));
         ŻycieW.setText(Integer.toString(C.ilePW()));
@@ -637,7 +649,16 @@ public Clip music() {
         KOBRW.setText(Integer.toString(C.ileKObrazen()));
         SPEEDW.setText(Integer.toString(C.ileRuchu()));
         INITW.setText(Integer.toString(C.ileInicjatywy()));
-
+        Postac Bo = getPostacW();
+        if (!Bo.zywy) {
+            skiptura.setEnabled(false);
+            // stop(clip);
+            Music.setEnabled(false);
+            koniec(1);
+            if (koniecg() == 1) {
+                Koniec koniec = new Koniec();
+            }
+        }
     }
-
+    
 }

@@ -8,7 +8,7 @@ public class Komenda {
     static String Stan = "";
     static int j;
     public static void podajStan(String stan){
-        Stan = stan;
+        Stan =Stan + "\n"+ stan;
     }
     public static String wezStan(){
         return Stan;
