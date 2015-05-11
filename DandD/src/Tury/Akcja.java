@@ -27,7 +27,6 @@ public class Akcja {
     static int[] tablica = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     static Postac bohater;
     static boolean x = true;
-    static int kierunek = -2;   
     public static void akcjaGracza(Bohaterowie postaci, Mapa mapa, int czyjRuch) {
         
         bohater = postaci.tablica.get(czyjRuch + 1);
@@ -43,7 +42,7 @@ public class Akcja {
         x = false;
         while (koniec) {
 ///////////////////ROZWIĄZANIE CHWILOWE, TE INFORMACJE POWINNY PRZYCISKI DAWAĆ, A NIE KLAWIATURA\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-            
+            int kierunek = -2;   
             String klawiatura = getKomenda();
             Scanner odczyt = new Scanner(System.in);
             char akcja = klawiatura.charAt(0);
@@ -86,7 +85,9 @@ public class Akcja {
                     break;
 
                 case 'A':
-                    if (postaci.tablica.get(czyjRuch).lAtakPom > 0) {
+                    if (postaci.tablica.get(czyjRuch).lAtakPom > 0)
+                    {
+                        kierunek = mapa.znajdzBohatera(2);
                         Atak(postaci, mapa, czyjRuch, kierunek);
                     } else {
                         System.out.println("Wykorzystano limit ataków");

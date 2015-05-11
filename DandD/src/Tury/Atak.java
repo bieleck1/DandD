@@ -35,11 +35,11 @@ public class Atak {
         }
         
         
-        /*if (postaci.tablica.get(czyjRuch).podajGracza() == postaci.tablica.get(kogo).podajGracza())
+        if (postaci.tablica.get(czyjRuch).podajGracza() == postaci.tablica.get(kogo).podajGracza())
         {
             System.out.println("Próbujesz zaatakować sprzymierzeńca");
             return;
-        }*/
+        }
         
         if (postaci.tablica.get(kogo).podajGracza() != 0 && postaci.tablica.get(kogo).podajGracza() != 1)
         {
