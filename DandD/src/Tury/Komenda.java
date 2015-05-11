@@ -15,8 +15,13 @@ import static Tury.Akcja.tablicaKierunek;
  */
 public class Komenda {
     static String komenda = "N";
-    
-    
+    static String Stan="";
+    public static void getStan(String stan){
+        Stan = stan;
+    }
+    public static String wezStan(){
+        return Stan;
+    }
     public synchronized static String getKomenda(){
         String tmp = komenda;
         komenda = "N";
