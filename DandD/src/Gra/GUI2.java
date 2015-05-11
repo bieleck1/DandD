@@ -6,9 +6,6 @@ import static Tury.Komenda.getPostac;
 import static Tury.Komenda.getPostacW;
 import static Tury.Komenda.podajKomende;
 import java.awt.Point;
-import java.awt.Robot;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 import javax.sound.sampled.AudioInputStream;
@@ -16,10 +13,10 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
-import javax.swing.Timer;
 
 public class GUI2 extends javax.swing.JFrame {
 
+    int[] tab;
     static String komenda;
     public int aa = 0;
     Clip clip2 = music();
@@ -171,6 +168,11 @@ public class GUI2 extends javax.swing.JFrame {
         Dół.setBounds(90, 280, 70, 23);
 
         Atak.setText("ATAK");
+        Atak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AtakActionPerformed(evt);
+            }
+        });
         jPanel1.add(Atak);
         Atak.setBounds(280, 220, 80, 23);
 
@@ -412,14 +414,22 @@ public class GUI2 extends javax.swing.JFrame {
 
     private void HelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HelpActionPerformed
         Help help = new Help();
+         komenda = "M";
+        podajKomende(komenda);
     }//GEN-LAST:event_HelpActionPerformed
 
-    public static void main(String args[]) {
+    private void AtakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtakActionPerformed
+        komenda = "A";
+        podajKomende(komenda);
+         try {
+            Thread.sleep(100);
+        } catch (InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
+        aktualizujBohatera(getPostac());
+        aktualizujWroga(getPostacW());
+    }//GEN-LAST:event_AtakActionPerformed
 
-        java.awt.EventQueue.invokeLater(() -> {
-            GUI2 gui2 = new GUI2();
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Atak;
@@ -495,19 +505,19 @@ public Clip music() {
 
     public void poruszaj(int i, int j) {
         dButton();
+        aktualizujBohatera(getPostac());
+        aktualizujWroga(getPostacW());
         a = Gracz.getLocation();
         nowax = a.x + i * Gracz.getWidth();
         noway = a.y + j * Gracz.getHeight();
         Gracz.setLocation(nowax, noway);
 
-        //aktualizujBohatera();
+        
     }
-    private Timer timer;
-    int[] tab;
 
     public void dButton() {
         try {
-            Thread.sleep(500);
+            Thread.sleep(100);
         } catch (InterruptedException ex) {
             Thread.currentThread().interrupt();
         }
@@ -598,7 +608,6 @@ public Clip music() {
 
         }
 
-        
     }
 
     public void aktualizujBohatera(Postac B) {
@@ -612,14 +621,14 @@ public Clip music() {
 
     }
 
-    public void aktualizujWroga(Postac B) {
-        ImieW.setText(B.nazwaPostaci().substring(3));
-        ŻycieW.setText(Integer.toString(B.ilePW()));
-        KlasaPancerzaW.setText(Integer.toString(B.ileKP()));
-        BazowyAtakW.setText(Integer.toString(B.ileAtak()));
-        KOBRW.setText(Integer.toString(B.ileKObrazen()));
-        SPEEDW.setText(Integer.toString(B.ileRuchu()));
-        INITW.setText(Integer.toString(B.ileInicjatywy()));
+    public void aktualizujWroga(Postac C) {
+        ImieW.setText(C.nazwaPostaci().substring(3));
+        ŻycieW.setText(Integer.toString(C.ilePW()));
+        KlasaPancerzaW.setText(Integer.toString(C.ileKP()));
+        BazowyAtakW.setText(Integer.toString(C.ileAtak()));
+        KOBRW.setText(Integer.toString(C.ileKObrazen()));
+        SPEEDW.setText(Integer.toString(C.ileRuchu()));
+        INITW.setText(Integer.toString(C.ileInicjatywy()));
 
     }
 

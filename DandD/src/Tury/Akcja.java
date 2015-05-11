@@ -27,9 +27,9 @@ public class Akcja {
     static int[] tablica = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     static Postac bohater;
     static boolean x = true;
-
+    static int kierunek = -2;   
     public static void akcjaGracza(Bohaterowie postaci, Mapa mapa, int czyjRuch) {
-
+        
         bohater = postaci.tablica.get(czyjRuch + 1);
         podajStaty(bohater);
         bohater = postaci.tablica.get(czyjRuch);
@@ -47,7 +47,7 @@ public class Akcja {
             String klawiatura = getKomenda();
             Scanner odczyt = new Scanner(System.in);
             char akcja = klawiatura.charAt(0);
-            int kierunek = -2;              //PRZYJĄŁEM KIERUNKI TAK JAK SĄ NA NUMERYCZNEJ
+                       //PRZYJĄŁEM KIERUNKI TAK JAK SĄ NA NUMERYCZNEJ
             if (klawiatura.length() != 1) {
                 if (Character.isDigit(klawiatura.charAt(1))) {
                     kierunek = klawiatura.charAt(1) - 48;
