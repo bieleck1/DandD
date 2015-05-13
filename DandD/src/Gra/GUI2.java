@@ -110,6 +110,7 @@ public class GUI2 extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -373,10 +374,14 @@ public class GUI2 extends javax.swing.JFrame {
         jPanel1.add(jPanel3);
         jPanel3.setBounds(20, 320, 60, 20);
 
+        jPanel4.setBackground(new java.awt.Color(255, 0, 0));
+        jPanel1.add(jPanel4);
+        jPanel4.setBounds(0, 0, 360, 210);
+
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pliki/dungeons_dragons-2.jpg"))); // NOI18N
         jLabel9.setText("jLabel9");
         jPanel1.add(jLabel9);
-        jLabel9.setBounds(10, 0, 670, 480);
+        jLabel9.setBounds(-10, 0, 690, 480);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 680, 520);
@@ -526,6 +531,7 @@ public class GUI2 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel kObr;
     private javax.swing.JLabel mapa;
