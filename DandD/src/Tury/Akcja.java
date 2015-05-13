@@ -8,10 +8,14 @@ package Tury;
 import Dane.Bohaterowie;
 import Dane.Mapa;
 import Dane.Postac;
+import static Gra.GUI2.clip2;
+import static Tury.Komenda.koniec;
 import static Gra.GUI2.Gracz;
+import static Gra.GUI2.Music;
 import static Gra.GUI2.Stan;
 import static Gra.GUI2.dButton;
 import static Gra.GUI2.poruszajWroga;
+import static Gra.GUI2.skiptura;
 import static Gra.GUI2.stop;
 import static Gra.GUI2.Życie;
 import Gra.GUIStart;
@@ -282,17 +286,17 @@ public class Akcja {
             tablicaKierunek();
             dButton();
         }
-       /* else {
+        else {
             Gracz.setIcon(new javax.swing.ImageIcon(Akcja.class.getResource("/Pliki/martwy.png")));
             skiptura.setEnabled(false);
-            stop(clip);
+            stop(clip2);
             Music.setEnabled(false);
             koniec(0);
             if (koniecg() == 0) {
                 Koniec koniecC = new Koniec();
             }
         }
-*/
+
     }
 
     private static int ustalKierunek(Mapa mapa, int czyjRuch, int kierunek) {
