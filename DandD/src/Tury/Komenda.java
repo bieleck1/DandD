@@ -6,10 +6,18 @@ import Dane.Postac;
 public class Komenda {
     static String komenda = "N";
     static String Stan = "Witaj Bohaterze!";
+    static String akcja = "(Akcja: ";
     static int j;
+    public static int ii=0;
     public static void podajStan(String stan){
-        Stan =Stan + "\n"+ stan;
+        Stan =Stan +"\n"+ akcja+Integer.toString(ii)+") "+ stan;
+        ii++;
     }
+    
+    public static void podajKomunikat(String stan){
+        Stan =Stan +"\n"+stan;
+    }
+        
     public static String wezStan(){
         return Stan;
     }

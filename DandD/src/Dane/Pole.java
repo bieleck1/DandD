@@ -11,8 +11,8 @@ package Dane;
  */
 public class Pole {
 
-    private int rzad;
-    private int kolumna;
+    public int rzad;
+    public int kolumna;
     private int typTerenu;
     public int ktoZajmuje;
 

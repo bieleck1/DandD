@@ -62,7 +62,7 @@ public class Ruch {
                 }
             else System.out.println("Brak wystarczającej liczby punktów ruchu");
         
-        podajStan("Koszt ruchu - " + koszt);
+        podajStan("Poruszyłeś się:Koszt ruchu - " + koszt);
     }
 
     public static boolean RuchSprawdz (Bohaterowie postaci, Mapa mapa, int czyjRuch, int kierunek)

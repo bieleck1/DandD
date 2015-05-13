@@ -41,12 +41,12 @@ public class Mapa {
             wyraz = dane.substring(0, dane.indexOf(';'));
             int typPola = Integer.parseInt(wyraz);
 
-            Pole p = new Pole(i, j, typPola);
+            Pole p = new Pole(j, i, typPola);
             plansza.add(p);
-
+            
             i++;
-            if (i % this.wymiarY == 0) {
-                i -= this.wymiarY;
+            if (i % this.wymiarX == 0) {
+                i -= this.wymiarX;
                 j++;
             }
 

@@ -3,8 +3,23 @@ package Gra;
 
 public class ZasadyGry extends javax.swing.JFrame {
 
-    public String zasady = "Gra opiera się na zasadach i mechanice systemu Dungeons & Dragons 3.5.\nJest ona symulatorem siatki bitewnej wykorzystywanej w owym systemie.\nGracz ma do dyspozycji jednego bohatera i staje naprzeciw jednego komputerowego oponenta.\nO kolejności ruchu decyduje inicjatywa (rzut kością k20 + bonus do Inicjatywy).\nGracz w swojej turze może:\n- Poruszać się, o ile pozwalają mu na to jego punkty szybkości (ruch po prostej kosztuje 1 pkt, po skosie oraz po trudnym terenie 2 pkt).\n- Atakować wroga, jeżeli ten jest w zasięgu.\nAtak polega na wykonaniu rzutu kością k20 oraz dodaniu do niego swojej wartości bazowego ataku.\nJeżeli wynik będzie wyższy od klasy pancerza przeciwnika to otrzyma on obrażenia równe rzutowi kością obrażeń powiększonej o wartość bonusu do siły bohatera.\nW przypadku wylosowania 20 podczas testu trafienia pojawia się szansa na trafienie " +
-"krytyczne.\nProcedura rzutów jest wtedy powtarzana - w przypadku trafienia (czyli przebicia KP oponenta) obrażenia zostają potrojone, zaś pudło oznacza zwykłe trafienie.\nAtakować można raz na turę.\\nZakończyć turę, co skutkuje oddaniem inicjatywy przeciwnikowi oraz odnowieniem liczby ataków oraz szybkości.\nGra kończy się wraz ze śmiercią jednej z postaci.";
+    public String zasady = "Gra opiera się na zasadach i mechanice systemu Dungeons & Dragons 3.5."
+            + "\nJest ona symulatorem siatki bitewnej wykorzystywanej w owym systemie."
+            + "\nGracz ma do dyspozycji jednego bohatera i staje naprzeciw jednego komputerowego oponenta."
+            + "\nO kolejności ruchu decyduje inicjatywa (rzut kością k20 + bonus do Inicjatywy)."
+            + "\nGracz w swojej turze może:"
+            + "\n- Poruszać się, o ile pozwalają mu na to jego punkty szybkości (ruch po prostej kosztuje 1 pkt, po skosie"
+            + "\noraz po trudnym terenie 2 pkt)."
+            + "\n- Atakować wroga, jeżeli ten jest w zasięgu."
+            + "\nAtak polega na wykonaniu rzutu kością k20 oraz dodaniu do niego swojej wartości bazowego ataku."
+            + "\nJeżeli wynik będzie wyższy od klasy pancerza przeciwnika to otrzyma on obrażenia równe rzutowi kością obrażeń"
+            + "\npowiększonej o wartość bonusu do siły bohatera."
+            + "\nW przypadku wylosowania 20 podczas testu trafienia pojawia się szansa na trafienie krytyczne."
+            + "\nProcedura rzutów jest wtedy powtarzana - w przypadku trafienia (czyli przebicia KP oponenta) obrażenia"
+            + "\nzostają potrojone, zaś pudło oznacza zwykłe trafienie."
+            + "\nAtakować można raz na turę."
+            + "\nZakończyć turę, co skutkuje oddaniem inicjatywy przeciwnikowi oraz odnowieniem liczby ataków oraz szybkości."
+            + "\nGra kończy się wraz ze śmiercią jednej z postaci.";
     public ZasadyGry() {
         initComponents();
         init();
@@ -52,7 +67,7 @@ public class ZasadyGry extends javax.swing.JFrame {
         jScrollPane1.setViewportView(Zasady);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(40, 120, 583, 250);
+        jScrollPane1.setBounds(13, 120, 610, 300);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pliki/dungeons_dragons-2.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
