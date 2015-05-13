@@ -12,7 +12,7 @@ import Gra.GUIStart;
 import static Tury.Atak.Atak;
 import static Tury.Czar.Czar;
 import static Tury.Komenda.getKomenda;
-import static Tury.Komenda.podajStan;
+import static Tury.Komenda.podajKomunikat;
 import static Tury.Komenda.podajStaty;
 import static Tury.Komenda.podajStatyW;
 import static Tury.Ruch.Ruch;
@@ -30,7 +30,7 @@ public class Akcja {
     static boolean x = true;
 
     public static void akcjaGracza(Bohaterowie postaci, Mapa mapa, int czyjRuch) {
-        podajStan("\nTura Gracza:");
+        podajKomunikat("\nTura Gracza: ");
 
         bohater = postaci.tablica.get(czyjRuch + 1);
         podajStaty(bohater);
@@ -107,7 +107,7 @@ public class Akcja {
     }
 
     public static void akcjaKomputera(Bohaterowie postaci, Mapa mapa, int czyjRuch) {
-        podajStan("\nTura Komputera");
+        podajKomunikat("\nTura Komputera: ");
     }
 
     private static int ustalKierunek(Mapa mapa, int czyjRuch, int kierunek) {

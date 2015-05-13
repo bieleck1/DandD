@@ -3,6 +3,12 @@ package Gra;
 import Dane.Postac;
 import static Tury.Komenda.getPostac;
 import static Tury.Komenda.koniecg;
+import java.io.IOException;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class Koniec extends javax.swing.JFrame {
 
@@ -15,12 +21,43 @@ public class Koniec extends javax.swing.JFrame {
         setVisible(true);
         setResizable(false);
         setLocationRelativeTo(null);
+        if (koniecg() == 1) {
+            muza = "Win.wav";        
+        }
+        else
+            muza = "Porazka.wav";
+        
         Postac B = getPostac();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         if (koniecg() == 1) {
-            stan.setText("Zwycięstwo!!!");
+            stan.setText("Victoria");
+            Koniec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pliki/Czaszka.gif")));
+            jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pliki/Zwyciestwo.jpg")));
+            music();
+        clip.start();
         } else {
-            stan.setText("Porażka!!!");
+            stan.setText("You are Dead!!!");
+            jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pliki/Porażka.png")));
+             Koniec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pliki/Czaszkaa.jpg")));
+             music();
+        clip.start();
+        }
+
+    }
+public Clip clip;
+public String muza;
+    public Clip music() {
+
+        try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
+                    Koniec.class.getResourceAsStream(muza));
+            clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            return clip;
+
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+            System.out.println("Error with playing sound.");
+            return null;
         }
 
     }
@@ -32,51 +69,42 @@ public class Koniec extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         stan = new javax.swing.JLabel();
         Koniec = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        stan.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        stan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel1.setLayout(null);
 
+        stan.setFont(new java.awt.Font("Tempus Sans ITC", 1, 36)); // NOI18N
+        stan.setForeground(new java.awt.Color(255, 0, 0));
+        stan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(stan);
+        stan.setBounds(160, 50, 259, 94);
+
+        Koniec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pliki/Czaszka.gif"))); // NOI18N
         Koniec.setText("Koniec");
         Koniec.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 KoniecActionPerformed(evt);
             }
         });
+        jPanel1.add(Koniec);
+        Koniec.setBounds(210, 380, 140, 48);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(153, 153, 153)
-                .addComponent(Koniec, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(80, Short.MAX_VALUE)
-                .addComponent(stan, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(85, 85, 85)
-                .addComponent(stan, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(Koniec, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pliki/Porażka.png"))); // NOI18N
+        jLabel1.setText("jLabel1");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(0, 0, 570, 450);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 545, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE)
         );
 
         pack();
@@ -90,6 +118,7 @@ public class Koniec extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Koniec;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel stan;
     // End of variables declaration//GEN-END:variables

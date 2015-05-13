@@ -39,16 +39,19 @@ public class GUI2 extends javax.swing.JFrame {
         setVisible(true);
         setLocationRelativeTo(null);
         setResizable(false);
+        dButton();
+        /*
         Góra.setEnabled(false);
         Lewo.setEnabled(false);
         Atak.setEnabled(false);
         PG.setEnabled(false);
         LG.setEnabled(false);
         LD.setEnabled(false);
-        NaSiebie.setEnabled(false);
+        NaSiebie.setEnabled(false);*/
         aktualizujBohatera(getPostac());
         aktualizujWroga(getPostacW());
         Stan.setText("Witaj Bohaterze!");
+        music();
     }
     
     @SuppressWarnings("unchecked")
@@ -515,7 +518,8 @@ public class GUI2 extends javax.swing.JFrame {
     public Clip music() {
         
         try {
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("*\\Pliki\\musiic.wav").getAbsoluteFile());
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
+         GUI2.class.getResourceAsStream("Gra.wav"));
             clip = AudioSystem.getClip();
             clip.open(audioInputStream);
             return clip;
@@ -668,6 +672,7 @@ public class GUI2 extends javax.swing.JFrame {
             Music.setEnabled(false);
             koniec(1);
             if (koniecg() == 1) {
+                clip2.stop();
                 Koniec koniec = new Koniec();
             }
         }

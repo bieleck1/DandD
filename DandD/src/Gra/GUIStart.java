@@ -1,5 +1,12 @@
 package Gra;
 
+import java.io.IOException;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
+
 public class GUIStart extends javax.swing.JFrame {
 
     public GUIStart() {
@@ -11,8 +18,28 @@ public class GUIStart extends javax.swing.JFrame {
     public void init() {
         setVisible(true);
         setResizable(false);
+
         setLocationRelativeTo(null);
+        music();
+        clip.start();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+    }
+    public Clip clip;
+
+    public Clip music() {
+
+        try {
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(
+                    Test.class.getResourceAsStream("Start.wav"));
+            clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            return clip;
+
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException ex) {
+            System.out.println("Error with playing sound.");
+            return null;
+        }
+
     }
 
     @SuppressWarnings("unchecked")
@@ -127,6 +154,7 @@ public class GUIStart extends javax.swing.JFrame {
 
     private void StartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartActionPerformed
         dispose();
+        clip.stop();
         GUI2 gui = new GUI2();
     }//GEN-LAST:event_StartActionPerformed
 
