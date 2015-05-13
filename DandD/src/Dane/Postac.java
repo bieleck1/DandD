@@ -213,4 +213,9 @@ public class Postac {
         this.ruchPom = this.ruch;
         this.lAtakPom = this.liczbaAtakow;
     }
+    
+    public static void resetPomBoh ()
+    {
+        
+    }
 }

@@ -9,8 +9,6 @@ import Dane.Mapa;
 import Dane.Bohaterowie;
 import static Tury.Akcja.akcjaGracza;
 import static Tury.Akcja.akcjaKomputera;
-import static Tury.Komenda.koniecg;
-import static Tury.Komenda.podajStan;
 import Tury.Tura;
 
 /**
@@ -41,7 +39,7 @@ public class Gra {
             postaci.tablica.get(i).losujInicjatywe();
             tury.dodajTure(postaci.tablica.get(i).jakiNumer(), postaci.tablica.get(i).ileInicjatywy());
         }
-        tury.lista.sort(null);
+        //tury.lista.sort(null);
 
         //TEST
         //System.out.println(siatka);

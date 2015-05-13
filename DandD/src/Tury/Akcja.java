@@ -8,6 +8,9 @@ package Tury;
 import Dane.Bohaterowie;
 import Dane.Mapa;
 import Dane.Postac;
+import static Gra.GUI2.Stan;
+import static Gra.GUI2.dButton;
+import static Gra.GUI2.poruszajWroga;
 import Gra.GUIStart;
 import static Tury.Atak.Atak;
 import static Tury.Czar.Czar;
@@ -15,6 +18,7 @@ import static Tury.Komenda.getKomenda;
 import static Tury.Komenda.podajKomunikat;
 import static Tury.Komenda.podajStaty;
 import static Tury.Komenda.podajStatyW;
+import static Tury.Komenda.wezStan;
 import static Tury.Ruch.Ruch;
 import static Tury.Ruch.RuchSprawdz;
 import java.util.Random;
@@ -27,6 +31,7 @@ import java.util.Scanner;
 public class Akcja {
 
     static int[] tablica = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+    static int[] tablicaW = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     static Postac bohater;
     static boolean x = true;
 
@@ -45,6 +50,7 @@ public class Akcja {
         if (x) {
             gui2 = new GUIStart();
         }
+        else dButton();
         x = false;
 
         while (koniec) {
@@ -89,6 +95,10 @@ public class Akcja {
 
                 case 'S':
                     koniec = false;
+                    for (int i=0; i<10; i++)
+                        tablica[i] = 0;
+                    tablicaKierunek();
+                    dButton();
                     break;
 
                 case 'M':
@@ -117,16 +127,16 @@ public class Akcja {
         boolean koniec = true;
 
         while (koniec) {
-            tablica[0] = 0;
-            uzupelnijTablice(tablica, postaci, mapa, czyjRuch);
+            tablicaW[0] = 0;
+            uzupelnijTabliceW(tablicaW, postaci, mapa, czyjRuch);
             int kierunek = 0;
 
-            if (tablica[0] == 1) {
+            if (tablicaW[0] == 1) {
                 if (postaci.tablica.get(czyjRuch).lAtakPom > 0) {
                     Atak(postaci, mapa, czyjRuch, cel);
                 }
                 if (postaci.tablica.get(czyjRuch).lAtakPom == 0) {
-                    tablica[0] = 0;
+                    tablicaW[0] = 0;
                     koniec = false;
                 }
             } else if (postaci.tablica.get(czyjRuch).ruchPom > 0) {
@@ -138,96 +148,96 @@ public class Akcja {
                 w = Math.abs((r.nextInt() % 3 + 1));
 
                 if (odlegloscX < 0) {
-                    if (w == 1 && tablica[4] == 1) {
+                    if (w == 1 && tablicaW[4] == 1) {
                         kierunek = 4;
                     }
-                    if (w == 2 && tablica[7] == 1) {
+                    if (w == 2 && tablicaW[7] == 1) {
                         kierunek = 7;
                     }
-                    if (w == 3 && tablica[1] == 1) {
+                    if (w == 3 && tablicaW[1] == 1) {
                         kierunek = 1;
                     }
 
                     if (odlegloscY < 0) {
-                        if (w == 1 && tablica[4] == 1) {
+                        if (w == 1 && tablicaW[4] == 1) {
                             kierunek = 4;
                         }
-                        if (w == 2 && tablica[7] == 1) {
+                        if (w == 2 && tablicaW[7] == 1) {
                             kierunek = 7;
                         }
-                        if (w == 3 && tablica[8] == 1) {
+                        if (w == 3 && tablicaW[8] == 1) {
                             kierunek = 8;
                         }
                     }
 
                     if (odlegloscY > 0) {
-                        if (w == 1 && tablica[4] == 1) {
+                        if (w == 1 && tablicaW[4] == 1) {
                             kierunek = 4;
                         }
-                        if (w == 2 && tablica[1] == 1) {
+                        if (w == 2 && tablicaW[1] == 1) {
                             kierunek = 1;
                         }
-                        if (w == 3 && tablica[2] == 1) {
+                        if (w == 3 && tablicaW[2] == 1) {
                             kierunek = 2;
                         }
                     }
                 }
 
                 if (odlegloscX > 0) {
-                    if (w == 1 && tablica[6] == 1) {
+                    if (w == 1 && tablicaW[6] == 1) {
                         kierunek = 6;
                     }
-                    if (w == 2 && tablica[9] == 1) {
+                    if (w == 2 && tablicaW[9] == 1) {
                         kierunek = 9;
                     }
-                    if (w == 3 && tablica[3] == 1) {
+                    if (w == 3 && tablicaW[3] == 1) {
                         kierunek = 3;
                     }
 
                     if (odlegloscY < 0) {
-                        if (w == 1 && tablica[8] == 1) {
+                        if (w == 1 && tablicaW[8] == 1) {
                             kierunek = 8;
                         }
-                        if (w == 2 && tablica[6] == 1) {
+                        if (w == 2 && tablicaW[6] == 1) {
                             kierunek = 6;
                         }
-                        if (w == 3 && tablica[9] == 1) {
+                        if (w == 3 && tablicaW[9] == 1) {
                             kierunek = 9;
                         }
                     }
 
                     if (odlegloscY > 0) {
-                        if (w == 1 && tablica[3] == 1) {
+                        if (w == 1 && tablicaW[3] == 1) {
                             kierunek = 3;
                         }
-                        if (w == 2 && tablica[6] == 1) {
+                        if (w == 2 && tablicaW[6] == 1) {
                             kierunek = 6;
                         }
-                        if (w == 3 && tablica[2] == 1) {
+                        if (w == 3 && tablicaW[2] == 1) {
                             kierunek = 2;
                         }
                     }
                 } else {
                     if (odlegloscY < 0) {
-                        if (w == 1 && tablica[8] == 1) {
+                        if (w == 1 && tablicaW[8] == 1) {
                             kierunek = 8;
                         }
-                        if (w == 2 && tablica[7] == 1) {
+                        if (w == 2 && tablicaW[7] == 1) {
                             kierunek = 7;
                         }
-                        if (w == 3 && tablica[9] == 1) {
+                        if (w == 3 && tablicaW[9] == 1) {
                             kierunek = 9;
                         }
                     }
 
                     if (odlegloscY > 0) {
-                        if (w == 1 && tablica[2] == 1) {
+                        if (w == 1 && tablicaW[2] == 1) {
                             kierunek = 2;
                         }
-                        if (w == 2 && tablica[3] == 1) {
+                        if (w == 2 && tablicaW[3] == 1) {
                             kierunek = 3;
                         }
-                        if (w == 3 && tablica[1] == 1) {
+                        if (w == 3 && tablicaW[1] == 1) {
                             kierunek = 1;
                         }
                     }
@@ -236,27 +246,37 @@ public class Akcja {
                 int i = 1;
 
                 while (kierunek == 0 && i <= 9) {
-                    if (tablica[i] == 1) {
+                    if (tablicaW[i] == 1) {
                         kierunek = i;
                     }
                     i++;
                 }
-
+                int pom = kierunek;
                 kierunek = ustalKierunek(mapa, czyjRuch, kierunek);
-                Ruch(postaci, mapa, czyjRuch, kierunek);
+                if (Ruch(postaci, mapa, czyjRuch, kierunek) > 0)
+                    poruszajWroga(pom);
+                
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(400);
                 } catch (InterruptedException ex) {
                     Thread.currentThread().interrupt();
                 }
 
-                uzupelnijTablice(tablica, postaci, mapa, czyjRuch);
+                uzupelnijTabliceW(tablicaW, postaci, mapa, czyjRuch);
                 System.out.println(mapa.plansza.get(wrog).kolumna + " " + mapa.plansza.get(wrog).rzad);
                 
             } else {
                 koniec = false;
             }
+        Stan.setText(wezStan());
         }
+        if (postaci.tablica.get(0).zywy)
+        {
+            uzupelnijTablice(tablica, postaci, mapa, czyjRuch-1);
+            tablicaKierunek();
+            dButton();
+        }
+
     }
 
     private static int ustalKierunek(Mapa mapa, int czyjRuch, int kierunek) {
@@ -353,6 +373,28 @@ public class Akcja {
 
     private synchronized static void uzupelnijTablice(int[] tablica, Bohaterowie postaci, Mapa mapa, int czyjRuch) {
         int kierunek;
+        tablica[0] = 0;
+        for (int i = 1; i < 10; i++) {
+            tablica[i] = 0;
+            kierunek = ustalKierunek(mapa, czyjRuch, i);
+            if (RuchSprawdz(postaci, mapa, czyjRuch, kierunek)) {
+                tablica[i] = 1;
+            } else {
+                tablica[i] = 0;
+            }
+
+            if (kierunek > 0) {
+                if (mapa.plansza.get(kierunek).ktoZajmuje > 0 && postaci.tablica.get(czyjRuch).lAtakPom > 0 && czyjRuch != mapa.plansza.get(kierunek).ktoZajmuje - 1) {
+                    tablica[0] = 1;
+                }
+            }
+        }
+        tablica[5] = 0;
+    }
+    
+    private static void uzupelnijTabliceW(int[] tablica, Bohaterowie postaci, Mapa mapa, int czyjRuch) {
+        int kierunek;
+        tablica[0] = 0;
         for (int i = 1; i < 10; i++) {
             tablica[i] = 0;
             kierunek = ustalKierunek(mapa, czyjRuch, i);

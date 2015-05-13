@@ -14,20 +14,22 @@ import static Tury.Komenda.podajStan;
  * @author Grzechu
  */
 public class Ruch {
-    public static void Ruch (Bohaterowie postaci, Mapa mapa, int czyjRuch, int kierunek)
+    public static int Ruch (Bohaterowie postaci, Mapa mapa, int czyjRuch, int kierunek)
     {
         int koszt = 0;
         
         if (kierunek == -3 || kierunek == -1)
         {
             System.out.println("Ruch niedozwolony");
-            return;
+            postaci.tablica.get(czyjRuch).ruchPom -= 1;
+            return 0;
         }
         
         if (kierunek == -2)
         {
             System.out.println("Znajdujesz się na polu " + mapa.znajdzBohatera(czyjRuch+1));
-            return;
+            postaci.tablica.get(czyjRuch).ruchPom -= 1;
+            return 0;
         }
         
         
@@ -42,7 +44,8 @@ public class Ruch {
                 {
                     mapa.przemiesc(czyjRuch+1, kierunek);
                     postaci.tablica.get(czyjRuch).ruchPom -= mapa.kosztRuchu(kierunek);
-                    koszt += mapa.kosztRuchu(kierunek);;
+                    koszt += mapa.kosztRuchu(kierunek);
+                    podajStan("Poruszyłeś się: Koszt ruchu - " + koszt);
                 }
                 else System.out.println("Pole niedostępne");
             }
@@ -55,14 +58,15 @@ public class Ruch {
                     mapa.przemiesc(czyjRuch+1, kierunek);
                     postaci.tablica.get(czyjRuch).ruchPom -= mapa.kosztRuchu(kierunek) + 1;
                     koszt += mapa.kosztRuchu(kierunek) + 1;
+                    podajStan("Poruszyłeś się: Koszt ruchu - " + koszt);
                 }
                 else {
                     //System.out.println("Pole niedostępne");
-                    return;
+                    return 0;
                 }
             else System.out.println("Brak wystarczającej liczby punktów ruchu");
         
-        podajStan("Poruszyłeś się:Koszt ruchu - " + koszt);
+        return 1;
     }
 
     public static boolean RuchSprawdz (Bohaterowie postaci, Mapa mapa, int czyjRuch, int kierunek)
