@@ -108,6 +108,10 @@ public class GUI2 extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         Stan = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -126,7 +130,7 @@ public class GUI2 extends javax.swing.JFrame {
         Enemy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pliki/wrog.png"))); // NOI18N
         Enemy.setText("jLabel8");
         jPanel1.add(Enemy);
-        Enemy.setBounds(302, 152, 47, 47);
+        Enemy.setBounds(300, 150, 47, 47);
 
         Gracz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pliki/gracz.png"))); // NOI18N
         Gracz.setText("jLabel1");
@@ -362,8 +366,25 @@ public class GUI2 extends javax.swing.JFrame {
         jPanel1.add(jButton1);
         jButton1.setBounds(500, 60, 100, 23);
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(360, 10, 130, 290);
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jPanel3);
+        jPanel3.setBounds(20, 320, 60, 20);
+
+        jPanel4.setBackground(new java.awt.Color(255, 0, 0));
+        jPanel1.add(jPanel4);
+        jPanel4.setBounds(0, 0, 360, 210);
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pliki/dungeons_dragons-2.jpg"))); // NOI18N
+        jLabel9.setText("jLabel9");
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(-10, 0, 690, 480);
+
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 600, 420);
+        jPanel1.setBounds(0, 0, 680, 520);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -506,7 +527,11 @@ public class GUI2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel kObr;
     private javax.swing.JLabel mapa;
