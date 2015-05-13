@@ -158,96 +158,80 @@ public class Akcja {
                 w = Math.abs((r.nextInt() % 3 + 1));
 
                 if (odlegloscX < 0) {
-                    if (w == 1 && tablicaW[4] == 1) {
+                    if ((w == 1 || w == 2) && tablicaW[4] == 1) {
                         kierunek = 4;
-                    }
-                    if (w == 2 && tablicaW[7] == 1) {
+                    } else if ((w == 2 || w == 3) && tablicaW[7] == 1) {
                         kierunek = 7;
-                    }
-                    if (w == 3 && tablicaW[1] == 1) {
+                    } else if ((w == 3 || w == 1) && tablicaW[1] == 1) {
                         kierunek = 1;
                     }
 
                     if (odlegloscY < 0) {
-                        if (w == 1 && tablicaW[4] == 1) {
-                            kierunek = 4;
-                        }
-                        if (w == 2 && tablicaW[7] == 1) {
+                        if ((w == 1 || w == 2) && tablicaW[7] == 1) {
                             kierunek = 7;
-                        }
-                        if (w == 3 && tablicaW[8] == 1) {
+                        } else if ((w == 2 || w == 3) && tablicaW[4] == 1) {
+                            kierunek = 4;
+                        } else if ((w == 3 || w == 1) && tablicaW[8] == 1) {
                             kierunek = 8;
                         }
                     }
 
                     if (odlegloscY > 0) {
-                        if (w == 1 && tablicaW[4] == 1) {
-                            kierunek = 4;
-                        }
-                        if (w == 2 && tablicaW[1] == 1) {
+                        if ((w == 1 || w == 2) && tablicaW[1] == 1) {
                             kierunek = 1;
-                        }
-                        if (w == 3 && tablicaW[2] == 1) {
+                        } else if ((w == 2 || w == 3) && tablicaW[4] == 1) {
+                            kierunek = 4;
+                        } else if ((w == 3 || w == 1) && tablicaW[2] == 1) {
                             kierunek = 2;
                         }
                     }
                 }
 
                 if (odlegloscX > 0) {
-                    if (w == 1 && tablicaW[6] == 1) {
+                    if ((w == 1 || w == 2) && tablicaW[6] == 1) {
                         kierunek = 6;
-                    }
-                    if (w == 2 && tablicaW[9] == 1) {
+                    } else if ((w == 2 || w == 3) && tablicaW[9] == 1) {
                         kierunek = 9;
-                    }
-                    if (w == 3 && tablicaW[3] == 1) {
+                    } else if ((w == 3 || w == 1) && tablicaW[3] == 1) {
                         kierunek = 3;
                     }
 
                     if (odlegloscY < 0) {
-                        if (w == 1 && tablicaW[8] == 1) {
-                            kierunek = 8;
-                        }
-                        if (w == 2 && tablicaW[6] == 1) {
-                            kierunek = 6;
-                        }
-                        if (w == 3 && tablicaW[9] == 1) {
+                        if ((w == 1 || w == 2) && tablicaW[9] == 1) {
                             kierunek = 9;
+                        } else if ((w == 2 || w == 3) && tablicaW[6] == 1) {
+                            kierunek = 6;
+                        } else if ((w == 3 || w == 1) && tablicaW[8] == 1) {
+                            kierunek = 8;
                         }
                     }
 
                     if (odlegloscY > 0) {
-                        if (w == 1 && tablicaW[3] == 1) {
+                        if ((w == 1 || w == 2) && tablicaW[3] == 1) {
                             kierunek = 3;
-                        }
-                        if (w == 2 && tablicaW[6] == 1) {
+                        } else if ((w == 2 || w == 3) && tablicaW[6] == 1) {
                             kierunek = 6;
-                        }
-                        if (w == 3 && tablicaW[2] == 1) {
+                        } else if ((w == 3 || w == 1) && tablicaW[2] == 1) {
                             kierunek = 2;
                         }
                     }
                 } else {
                     if (odlegloscY < 0) {
-                        if (w == 1 && tablicaW[8] == 1) {
+                        if ((w == 1 || w == 2) && tablicaW[8] == 1) {
                             kierunek = 8;
-                        }
-                        if (w == 2 && tablicaW[7] == 1) {
+                        } else if ((w == 2 || w == 3) && tablicaW[7] == 1) {
                             kierunek = 7;
-                        }
-                        if (w == 3 && tablicaW[9] == 1) {
+                        } else if ((w == 3 || w == 1) && tablicaW[9] == 1) {
                             kierunek = 9;
                         }
                     }
 
                     if (odlegloscY > 0) {
-                        if (w == 1 && tablicaW[2] == 1) {
+                        if ((w == 1 || w == 2) && tablicaW[2] == 1) {
                             kierunek = 2;
-                        }
-                        if (w == 2 && tablicaW[3] == 1) {
+                        } else if ((w == 2 || w == 3) && tablicaW[3] == 1) {
                             kierunek = 3;
-                        }
-                        if (w == 3 && tablicaW[1] == 1) {
+                        } else if ((w == 3 || w == 1) && tablicaW[1] == 1) {
                             kierunek = 1;
                         }
                     }
