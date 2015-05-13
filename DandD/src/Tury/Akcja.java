@@ -12,6 +12,7 @@ import Gra.GUIStart;
 import static Tury.Atak.Atak;
 import static Tury.Czar.Czar;
 import static Tury.Komenda.getKomenda;
+import static Tury.Komenda.podajKomunikat;
 import static Tury.Komenda.podajStan;
 import static Tury.Komenda.podajStaty;
 import static Tury.Komenda.podajStatyW;
@@ -31,7 +32,7 @@ public class Akcja {
     static boolean x = true;
 
     public static void akcjaGracza(Bohaterowie postaci, Mapa mapa, int czyjRuch) {
-        podajStan("\nTura Gracza:");
+        podajKomunikat("\nTura Gracza: ");
 
         bohater = postaci.tablica.get(czyjRuch + 1);
         podajStaty(bohater);
@@ -133,9 +134,20 @@ public class Akcja {
                 int odlegloscY = mapa.plansza.get(cel).rzad - mapa.plansza.get(wrog).rzad;
                 System.out.println("" + mapa.plansza.get(wrog).kolumna);
                 System.out.println("" + mapa.plansza.get(wrog).rzad);
+                
                 w = Math.abs((r.nextInt() % 3 + 1));
+                
                 if (odlegloscX < 0) {
-                    kierunek = 4;
+                    if (w == 1 && tablica[4] == 1) {
+                        kierunek = 4;
+                    }
+                    if (w == 2 && tablica[7] == 1) {
+                        kierunek = 7;
+                    }
+                    if (w == 3 && tablica[1] == 1) {
+                        kierunek = 1;
+                    }
+
                     if (odlegloscY < 0) {
                         if (w == 1 && tablica[4] == 1) {
                             kierunek = 4;
@@ -147,17 +159,29 @@ public class Akcja {
                             kierunek = 8;
                         }
                     }
+                    
+                    if (odlegloscY > 0) {
+                        if (w == 1 && tablica[4] == 1) {
+                            kierunek = 4;
+                        }
+                        if (w == 2 && tablica[1] == 1) {
+                            kierunek = 1;
+                        }
+                        if (w == 3 && tablica[2] == 1) {
+                            kierunek = 2;
+                        }
+                    }
                 }
 
-                if (odlegloscX < 0 && odlegloscY >= 0) {
-                    if (w == 1 && tablica[4] == 1) {
-                        kierunek = 4;
+                if (odlegloscX > 0) {
+                    if (w == 1 && tablica[6] == 1) {
+                        kierunek = 6;
                     }
-                    if (w == 2 && tablica[7] == 1) {
-                        kierunek = 7;
+                    if (w == 2 && tablica[9] == 1) {
+                        kierunek = 9;
                     }
-                    if (w == 3 && tablica[8] == 1) {
-                        kierunek = 8;
+                    if (w == 3 && tablica[3] == 1) {
+                        kierunek = 3;
                     }
                 }
                 koniec = false;
