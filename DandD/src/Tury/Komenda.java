@@ -8,7 +8,7 @@ public class Komenda {
     static String Stan = "Witaj Bohaterze!";
     static String akcja = "(Akcja: ";
     static int j;
-    public static int ii=0;
+    public static int ii=1;
     public static void podajStan(String stan){
         Stan =Stan +"\n"+ akcja+Integer.toString(ii)+") "+ stan;
         ii++;
