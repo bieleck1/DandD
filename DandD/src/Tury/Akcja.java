@@ -17,6 +17,7 @@ import static Tury.Komenda.podajStaty;
 import static Tury.Komenda.podajStatyW;
 import static Tury.Ruch.Ruch;
 import static Tury.Ruch.RuchSprawdz;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -108,6 +109,60 @@ public class Akcja {
 
     public static void akcjaKomputera(Bohaterowie postaci, Mapa mapa, int czyjRuch) {
         podajStan("\nTura Komputera");
+        int cel = mapa.znajdzBohatera(1);
+        int kierunek = 0;
+        int w;
+        Random r = new Random();
+        boolean koniec = true;
+
+        while (koniec) {
+            tablica[0] = 0;
+            uzupelnijTablice(tablica, postaci, mapa, czyjRuch);
+            if (tablica[0] == 1) {
+                if (postaci.tablica.get(czyjRuch).lAtakPom > 0) {
+                    Atak(postaci, mapa, czyjRuch, cel);
+                }
+                if (postaci.tablica.get(czyjRuch).lAtakPom == 0) {
+                    tablica[0] = 0;
+                    koniec = false;
+                }
+            } else {
+                int wrog = mapa.znajdzBohatera(czyjRuch + 1);
+
+                int odlegloscX = mapa.plansza.get(cel).kolumna - mapa.plansza.get(wrog).kolumna;
+                int odlegloscY = mapa.plansza.get(cel).rzad - mapa.plansza.get(wrog).rzad;
+                System.out.println("" + mapa.plansza.get(wrog).kolumna);
+                System.out.println("" + mapa.plansza.get(wrog).rzad);
+                w = Math.abs((r.nextInt() % 3 + 1));
+                if (odlegloscX < 0) {
+                    kierunek = 4;
+                    if (odlegloscY < 0) {
+                        if (w == 1 && tablica[4] == 1) {
+                            kierunek = 4;
+                        }
+                        if (w == 2 && tablica[7] == 1) {
+                            kierunek = 7;
+                        }
+                        if (w == 3 && tablica[8] == 1) {
+                            kierunek = 8;
+                        }
+                    }
+                }
+
+                if (odlegloscX < 0 && odlegloscY >= 0) {
+                    if (w == 1 && tablica[4] == 1) {
+                        kierunek = 4;
+                    }
+                    if (w == 2 && tablica[7] == 1) {
+                        kierunek = 7;
+                    }
+                    if (w == 3 && tablica[8] == 1) {
+                        kierunek = 8;
+                    }
+                }
+                koniec = false;
+            }
+        }
     }
 
     private static int ustalKierunek(Mapa mapa, int czyjRuch, int kierunek) {
@@ -214,7 +269,7 @@ public class Akcja {
             }
 
             if (kierunek > 0) {
-                if (mapa.plansza.get(kierunek).ktoZajmuje > 1 && postaci.tablica.get(czyjRuch).lAtakPom > 0) {
+                if (mapa.plansza.get(kierunek).ktoZajmuje > 0 && postaci.tablica.get(czyjRuch).lAtakPom > 0 && czyjRuch != mapa.plansza.get(kierunek).ktoZajmuje - 1) {
                     tablica[0] = 1;
                 }
             }

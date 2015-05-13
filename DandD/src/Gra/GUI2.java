@@ -39,13 +39,14 @@ public class GUI2 extends javax.swing.JFrame {
         setVisible(true);
         setLocationRelativeTo(null);
         setResizable(false);
+        dButton();/*
         Góra.setEnabled(false);
         Lewo.setEnabled(false);
         Atak.setEnabled(false);
         PG.setEnabled(false);
         LG.setEnabled(false);
         LD.setEnabled(false);
-        NaSiebie.setEnabled(false);
+        NaSiebie.setEnabled(false);*/
         aktualizujBohatera(getPostac());
         aktualizujWroga(getPostacW());
         Stan.setText("Witaj Bohaterze!");
