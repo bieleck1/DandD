@@ -701,6 +701,11 @@ public class GUI2 extends javax.swing.JFrame {
         if (!Bo.zywy) {
             Enemy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pliki/martwy.png")));
             skiptura.setEnabled(false);
+            try {
+                    Thread.sleep(800);
+                } catch (InterruptedException ex) {
+                    Thread.currentThread().interrupt();
+                }
             stop(clip);
             Music.setEnabled(false);
             koniec(1);

@@ -289,6 +289,11 @@ public class Akcja {
         else {
             Gracz.setIcon(new javax.swing.ImageIcon(Akcja.class.getResource("/Pliki/martwy.png")));
             skiptura.setEnabled(false);
+            try {
+                Thread.sleep(800);
+            } catch (InterruptedException ex) {
+                Thread.currentThread().interrupt();
+            }
             stop(clip2);
             Music.setEnabled(false);
             koniec(0);
@@ -403,7 +408,7 @@ public class Akcja {
                 tablica[i] = 0;
             }
 
-            if (kierunek > 0) {
+            if (kierunek >= 0) {
                 if (mapa.plansza.get(kierunek).ktoZajmuje > 0 && postaci.tablica.get(czyjRuch).lAtakPom > 0 && czyjRuch != mapa.plansza.get(kierunek).ktoZajmuje - 1) {
                     tablica[0] = 1;
                 }
@@ -424,7 +429,7 @@ public class Akcja {
                 tablica[i] = 0;
             }
 
-            if (kierunek > 0) {
+            if (kierunek >= 0) {
                 if (mapa.plansza.get(kierunek).ktoZajmuje > 0 && postaci.tablica.get(czyjRuch).lAtakPom > 0 && czyjRuch != mapa.plansza.get(kierunek).ktoZajmuje - 1) {
                     tablica[0] = 1;
                 }
