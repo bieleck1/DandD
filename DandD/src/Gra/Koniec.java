@@ -30,13 +30,13 @@ public class Koniec extends javax.swing.JFrame {
         Postac B = getPostac();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         if (koniecg() == 1) {
-            stan.setText("Victoria");
+            stan.setText("Wygrana");
             Koniec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pliki/Czaszka.gif")));
             jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pliki/Zwyciestwo.jpg")));
             music();
         clip.start();
         } else {
-            stan.setText("You are Dead!!!");
+            stan.setText("Przegrana");
             jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pliki/Porażka.png")));
              Koniec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pliki/Czaszkaa.jpg")));
              music();

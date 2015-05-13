@@ -8,11 +8,14 @@ package Tury;
 import Dane.Bohaterowie;
 import Dane.Mapa;
 import Dane.Postac;
+import static Gra.GUI2.Enemy;
 import static Gra.GUI2.clip2;
 import static Tury.Komenda.koniec;
 import static Gra.GUI2.Gracz;
 import static Gra.GUI2.Music;
+import static Gra.GUI2.SPEED;
 import static Gra.GUI2.Stan;
+import static Gra.GUI2.clip2;
 import static Gra.GUI2.dButton;
 import static Gra.GUI2.poruszajWroga;
 import static Gra.GUI2.skiptura;
@@ -23,6 +26,7 @@ import Gra.Koniec;
 import static Tury.Atak.Atak;
 import static Tury.Czar.Czar;
 import static Tury.Komenda.getKomenda;
+import static Tury.Komenda.getPostacW;
 import static Tury.Komenda.koniecg;
 import static Tury.Komenda.podajKomunikat;
 import static Tury.Komenda.podajStaty;
@@ -117,9 +121,24 @@ public class Akcja {
                 case 'N':
                     break;
             }
-            if (!postaci.tablica.get(0).zywy || !postaci.tablica.get(1).zywy) {
-                for (int i = 0; i < 10; i++) {
+            if (!postaci.tablica.get(1).zywy) 
+            {
+                for (int i = 0; i < 10; i++)
                     tablica[i] = 0;
+                Enemy.setIcon(new javax.swing.ImageIcon(Akcja.class.getResource("/Pliki/martwy.png")));
+                skiptura.setEnabled(false);
+                try {
+                        Thread.sleep(800);
+                    } catch (InterruptedException ex) {
+                        Thread.currentThread().interrupt();
+                    }
+                stop(clip2);
+                Music.setEnabled(false);
+                koniec(1);
+                if (koniecg() == 1)
+                {
+                    clip2.stop();
+                    Koniec koniecC = new Koniec();
                 }
                 break;
             }
@@ -301,7 +320,8 @@ public class Akcja {
                 Koniec koniecC = new Koniec();
             }
         }
-
+    postaci.tablica.get(0).resetPom();
+    SPEED.setText(Integer.toString(postaci.tablica.get(0).ileRuchu()));
     }
 
     private static int ustalKierunek(Mapa mapa, int czyjRuch, int kierunek) {
