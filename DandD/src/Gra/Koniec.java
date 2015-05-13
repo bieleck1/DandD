@@ -79,7 +79,7 @@ public String muza;
         stan.setForeground(new java.awt.Color(255, 0, 0));
         stan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jPanel1.add(stan);
-        stan.setBounds(160, 50, 259, 94);
+        stan.setBounds(160, 4, 259, 70);
 
         Koniec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pliki/Czaszka.gif"))); // NOI18N
         Koniec.setText("Koniec");
