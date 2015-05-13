@@ -471,7 +471,7 @@ public class GUI2 extends javax.swing.JFrame {
     private javax.swing.JLabel Bohater;
     public static javax.swing.JButton Dół;
     public static javax.swing.JLabel Enemy;
-    private javax.swing.JLabel Gracz;
+    public static javax.swing.JLabel Gracz;
     public static javax.swing.JButton Góra;
     private javax.swing.JButton Help;
     private javax.swing.JLabel INIT;
@@ -511,7 +511,7 @@ public class GUI2 extends javax.swing.JFrame {
     private javax.swing.JLabel kObr;
     private javax.swing.JLabel mapa;
     private javax.swing.JButton skiptura;
-    private javax.swing.JLabel Życie;
+    public static javax.swing.JLabel Życie;
     private javax.swing.JLabel ŻycieW;
     // End of variables declaration//GEN-END:variables
 
@@ -535,7 +535,7 @@ public class GUI2 extends javax.swing.JFrame {
         clip.start();
     }
     
-    public void stop(Clip clip) {
+    public static void stop(Clip clip) {
         clip.stop();
     }
     
@@ -687,18 +687,6 @@ public class GUI2 extends javax.swing.JFrame {
         KOBR.setText(Integer.toString(B.ileKObrazen()));
         SPEED.setText(Integer.toString(B.ruchPom));
         INIT.setText(Integer.toString(B.ileInicjatywy()));
-        Postac Bo = getPostac();
-        if (!Bo.zywy) {
-            Gracz.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pliki/martwy.png")));
-            skiptura.setEnabled(false);
-            // stop(clip);
-            Music.setEnabled(false);
-            koniec(0);
-            if (koniecg() == 0) {
-                Koniec koniec = new Koniec();
-            }
-        }
-        
     }
     
     public void aktualizujWroga(Postac C) {
@@ -713,7 +701,7 @@ public class GUI2 extends javax.swing.JFrame {
         if (!Bo.zywy) {
             Enemy.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pliki/martwy.png")));
             skiptura.setEnabled(false);
-            // stop(clip);
+            stop(clip);
             Music.setEnabled(false);
             koniec(1);
             if (koniecg() == 1) {

@@ -7,6 +7,7 @@ package Tury;
 
 import Dane.Bohaterowie;
 import Dane.Mapa;
+import static Gra.GUI2.Życie;
 import static Tury.Komenda.podajStan;
 
 /**
@@ -82,7 +83,9 @@ public class Atak {
         {
             postaci.smierc(kogo);
             mapa.plansza.get(kierunek).zwloki();
-            komunikat += "\nGracz " + postaci.tablica.get(kogo).nazwaPostaci().substring(3) + " zginął.";
+            if (kogo == 1)
+                komunikat += "\nGracz " + postaci.tablica.get(kogo).nazwaPostaci().substring(3) + " zginął.";
+            else komunikat += "\nGracz " + postaci.tablica.get(kogo).nazwaPostaci() + " zginął."; 
         }
         podajStan(komunikat);
     }
